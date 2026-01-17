@@ -88,6 +88,20 @@ body.desktop-mode .mobile-menu-button {
   display: none !important;
 }
 
+@media (min-width: 1024px) {
+  .hero-section .container {
+    max-width: none;
+    width: 100%;
+  }
+
+  .hero-section .hero-bg {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+}
+
 @media (min-width: 768px) {
   .desktop-nav {
     align-items: center;

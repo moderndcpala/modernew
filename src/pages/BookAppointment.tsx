@@ -267,8 +267,8 @@ _This is an automated booking request from our website._`;
           <div className="absolute inset-0 bg-primary-green/75" />
           <div className="container mx-auto px-4 relative z-10">
             <h1 className="text-3xl md:text-4xl font-bold text-center">
-              Book an Appointment
-            </h1>
+            Book an Appointment
+          </h1>
             <p className="text-base md:text-lg text-center mt-3 opacity-90">
               Schedule your visit with our expert diagnostic team
             </p>

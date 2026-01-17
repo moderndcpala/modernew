@@ -32,12 +32,12 @@ const Hero = () => {
   // Buttons stay visible to prevent flicker
 
   return (
-    <section className="relative h-[500px] sm:h-[600px] md:h-[680px] lg:h-[720px] xl:h-[760px] overflow-hidden">
+    <section className="hero-section relative h-[500px] sm:h-[600px] md:h-[680px] lg:h-[720px] xl:h-[760px] overflow-hidden">
       {/* Background Images with Fade Animation */}
       {heroImages.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
+          className={`hero-bg absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
             index === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}
           style={{
@@ -59,7 +59,7 @@ const Hero = () => {
           }}>
             Advanced Diagnostics for Your Health
           </h1>
-          
+
           {/* Action Buttons */}
           <div 
             ref={buttonsRef}
