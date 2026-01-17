@@ -43,7 +43,7 @@ const Header = () => {
               <Link 
                 to="/" 
                 onClick={() => setIsMenuOpen(false)} 
-                className="flex items-center h-full transition-opacity hover:opacity-90 py-2"
+                className="flex items-center h-full transition-opacity hover:opacity-90 py-2 lg:bg-white/95 lg:rounded-md lg:px-3 lg:py-2 lg:shadow-sm"
               >
                 <img 
                   src={logo} 
@@ -56,15 +56,15 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center space-x-1">
+            <nav className="hidden lg:flex items-center justify-center flex-1 space-x-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 relative ${
+                  className={`px-4 py-2 rounded-full font-medium transition-all duration-200 relative ${
                     isActive(link.to)
-                      ? 'text-white bg-gray-500 bg-opacity-15 font-semibold'
-                      : 'text-white hover:text-white hover:bg-white hover:bg-opacity-10'
+                      ? 'text-white bg-white/20 font-semibold'
+                      : 'text-white/90 hover:text-white hover:bg-white/10'
                   }`}
                 >
                   {link.label}
@@ -79,19 +79,19 @@ const Header = () => {
             <div className="hidden lg:flex items-center space-x-3">
               {/* Desktop Action Buttons */}
               <div className="flex items-center space-x-3">
-              <Link
-                to="/book-appointment"
-                className="inline-flex items-center gap-2 bg-white text-primary-green px-5 py-2.5 rounded-full font-semibold shadow-lg ring-2 ring-white/60 hover:bg-gray-50 hover:ring-white transition-all duration-200 hover:-translate-y-0.5"
-              >
-                <Calendar className="h-4 w-4" />
-                Book Appointment
-              </Link>
-              <a
-                href="#contact"
-                className="bg-transparent border-2 border-white text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-white hover:text-primary-green transition-all duration-200"
-              >
-                Contact Us
-              </a>
+                <Link
+                  to="/book-appointment"
+                  className="inline-flex items-center gap-2 bg-white text-primary-green px-5 py-2.5 rounded-full font-semibold shadow-lg ring-1 ring-white/70 hover:bg-gray-50 hover:ring-white transition-all duration-200 hover:-translate-y-0.5"
+                >
+                  <Calendar className="h-4 w-4" />
+                  Book Appointment
+                </Link>
+                <a
+                  href="#contact"
+                  className="bg-white/10 border border-white/60 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-white hover:text-primary-green transition-all duration-200"
+                >
+                  Contact Us
+                </a>
               </div>
             </div>
 
