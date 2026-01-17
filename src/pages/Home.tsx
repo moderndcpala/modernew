@@ -41,6 +41,7 @@ const Home = () => {
                     key={image}
                     src={image}
                     alt="Modern Diagnostic Centre"
+                    loading="lazy"
                     className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                       index === welcomeIndex ? 'opacity-100' : 'opacity-0'
                     }`}

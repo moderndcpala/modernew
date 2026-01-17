@@ -140,6 +140,7 @@ const WhyChooseUs = () => {
               <img 
                 src={galleryImage5} 
                 alt="Modern Diagnostic Centre Facilities" 
+                loading="lazy"
                 className="w-full h-[250px] md:h-[350px] lg:h-[400px] object-cover"
               />
             </div>

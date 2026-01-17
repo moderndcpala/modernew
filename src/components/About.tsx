@@ -43,6 +43,7 @@ const About = () => {
             <img 
               src={yearsImage} 
               alt="25 Years of Trust & Care" 
+              loading="lazy"
                     className="w-full h-auto rounded-xl shadow-xl object-contain"
                   />
                 </div>
@@ -51,6 +52,7 @@ const About = () => {
                   <img 
                     src={galleryImage4} 
                     alt="Modern Diagnostic Centre" 
+                    loading="lazy"
                     className="w-full h-auto rounded-xl shadow-xl object-cover"
             />
                 </div>

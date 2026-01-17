@@ -145,6 +145,7 @@ const Services = () => {
             <img 
               src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1200&h=600&fit=crop" 
               alt="Modern Medical Laboratory" 
+              loading="lazy"
               className="w-full h-[200px] md:h-[300px] lg:h-[350px] object-cover"
               onError={(e) => {
                 // Fallback image if the first one fails

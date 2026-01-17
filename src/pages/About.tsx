@@ -92,6 +92,17 @@ const About = () => {
           }
         }
 
+        @keyframes aboutImageIn {
+          from {
+            opacity: 0;
+            transform: translateY(12px) scale(0.98);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+
         .fade-in-up-delay {
           opacity: 0;
           transform: translateY(30px);
@@ -112,6 +123,10 @@ const About = () => {
         .scale-in-delay.visible {
           opacity: 1;
           transform: scale(1);
+        }
+
+        .about-image-enter {
+          animation: aboutImageIn 0.8s ease-out both;
         }
       `}</style>
     <div className="min-h-screen flex flex-col">
@@ -165,6 +180,7 @@ const About = () => {
                     <img
                       src={yearsImage}
                       alt="25 Years of Trust & Care"
+                      loading="lazy"
                       className="w-auto max-w-[180px] sm:max-w-[200px] md:max-w-[220px] h-auto transition-transform duration-300 hover:scale-105"
                     />
                   </div>
@@ -176,7 +192,8 @@ const About = () => {
                     <img 
                       src="/about us page.jpg"
                       alt="Modern Diagnostic Centre Facility"
-                      className="w-full max-w-[360px] sm:max-w-[420px] md:max-w-[480px] h-auto rounded-xl shadow-xl object-cover transition-transform duration-300 hover:scale-[1.02]"
+                      loading="lazy"
+                      className="w-full max-w-[360px] sm:max-w-[420px] md:max-w-[480px] h-auto rounded-xl shadow-xl object-cover transition-transform duration-300 hover:scale-[1.02] about-image-enter"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = 'none';
                       }}
@@ -255,6 +272,7 @@ const About = () => {
                     <img 
                       src={galleryImage1} 
                       alt="Mission" 
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -274,6 +292,7 @@ const About = () => {
                     <img 
                       src={galleryImage2} 
                       alt="Vision" 
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -306,6 +325,7 @@ const About = () => {
                 <img 
                   src={galleryImage3} 
                   alt="Modern Diagnostic Centre Facilities" 
+                  loading="lazy"
                   className="w-full h-[200px] md:h-[300px] lg:h-[400px] object-cover"
                 />
               </div>

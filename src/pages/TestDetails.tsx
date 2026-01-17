@@ -63,6 +63,7 @@ const TestDetails = () => {
             <img 
               src={test.image} 
               alt={test.name}
+              loading="lazy"
               className="w-full h-full object-cover"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = 'none';

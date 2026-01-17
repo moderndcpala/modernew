@@ -25,6 +25,7 @@ const GoogleReviews = () => {
             <img
               src="/google-logo-9808 1.png"
               alt="Google logo"
+              loading="lazy"
               className="mx-auto mb-4 h-8 w-auto"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = 'none';

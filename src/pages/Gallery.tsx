@@ -120,6 +120,7 @@ const Gallery = () => {
                 <img
                   src={item.image}
                   alt={item.title}
+                  loading="lazy"
                   className="w-full h-full object-cover aspect-square"
                 />
                 
@@ -185,6 +186,7 @@ const Gallery = () => {
                 <img
                   src={galleryImages[selectedImage - 1].image}
                   alt={galleryImages[selectedImage - 1].title}
+                  loading="lazy"
                   className="max-w-full max-h-full object-contain rounded-lg"
                 />
                 

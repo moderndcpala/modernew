@@ -259,6 +259,7 @@ const OurTests = () => {
                             <img 
                               src={test.image} 
                               alt={test.title}
+                              loading="lazy"
                               className="w-full h-full object-cover lg:object-cover lg:object-center hover:scale-105 transition-transform duration-300"
                               style={{
                                 objectPosition: 'center center'

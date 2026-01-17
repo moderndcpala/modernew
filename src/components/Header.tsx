@@ -48,6 +48,7 @@ const Header = () => {
                 <img 
                   src={logo} 
                   alt="Modern Diagnostic Centre" 
+                  loading="lazy"
                   className="h-16 md:h-20 w-auto object-contain max-h-full" 
                   style={{ maxHeight: '80px' }}
                 />

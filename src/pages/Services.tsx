@@ -479,6 +479,7 @@ const Services = () => {
             <img
               src="/services page image 1.png"
               alt="Modern Medical Laboratory"
+              loading="lazy"
               className="w-full h-[220px] md:h-[320px] lg:h-[380px] object-cover transition-transform duration-300 hover:scale-[1.02]"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = 'none';
@@ -551,6 +552,7 @@ const Services = () => {
                                   <img 
                                     src={test.image} 
                                     alt={test.name}
+                                    loading="lazy"
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                     onError={(e) => {
                                       // Fallback if image fails to load
