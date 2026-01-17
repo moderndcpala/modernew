@@ -59,9 +59,9 @@ const Header = () => {
     <>
       <header className="sticky top-0 z-50 bg-primary-green shadow-lg backdrop-blur-sm bg-opacity-95">
         <div className="container mx-auto px-4 lg:px-6">
-          <div className="flex items-center justify-between h-24 md:h-28">
+          <div className="flex items-center justify-between h-24 md:h-28 gap-6 md:gap-8">
             {/* Logo */}
-            <div className="flex items-center h-full md:flex-1">
+            <div className="flex items-center h-full md:flex-1 md:justify-start">
               <Link 
                 to="/" 
                 onClick={() => setIsMenuOpen(false)} 
@@ -78,7 +78,7 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation Links */}
-            <nav className="desktop-nav hidden md:flex items-center justify-center flex-1 space-x-2">
+            <nav className="desktop-nav hidden md:flex items-center justify-center flex-1 space-x-4">
               {navLinks.map((link) =>
                 link.link.startsWith('#') ? (
                   <a
@@ -108,7 +108,7 @@ const Header = () => {
             </nav>
 
             {/* Desktop Right Section - Action Buttons */}
-            <div className="hidden md:flex items-center justify-end md:flex-1 space-x-3">
+            <div className="hidden md:flex items-center justify-end md:flex-1 space-x-4">
               {/* Desktop Action Buttons */}
               <div className="flex items-center space-x-3">
                 <Link
