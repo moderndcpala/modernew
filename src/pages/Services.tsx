@@ -538,7 +538,7 @@ const Services = () => {
                   {/* Tests List - Expandable */}
                   {isExpanded && (
                     <div className="p-6 md:p-8 bg-white">
-                      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                         {service.tests.map((test) => {
                           return (
                           <div
@@ -751,12 +751,12 @@ const Services = () => {
               >
                 Call Now
               </a>
-              <a
-                href="/book-appointment"
+              <Link
+                to="/book-appointment"
                 className="inline-flex items-center justify-center bg-primary-green border-2 border-white text-white px-8 py-3 rounded-md font-semibold hover:bg-opacity-90 transition-all duration-200 hover:shadow-xl transform hover:-translate-y-0.5 hover:scale-105"
               >
                 Book Appointment
-              </a>
+              </Link>
             </div>
           </div>
         </div>
