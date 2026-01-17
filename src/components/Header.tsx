@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Calendar } from 'lucide-react';
 import logo from '../assets/logo.png';
-import yearsLogo from '../assets/25years.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

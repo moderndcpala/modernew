@@ -241,7 +241,7 @@ const OurTests = () => {
                   WebkitOverflowScrolling: 'touch',
                 }}
               >
-                {allTests.map((test, index) => {
+                {allTests.map((test, _index) => {
                   const CategoryIcon = test.categoryIcon;
 
                   return (

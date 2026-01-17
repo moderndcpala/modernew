@@ -202,7 +202,6 @@ _This is an automated booking request from our website._`;
     // Send email notification in background (backup notification)
     // Email will be sent TO admin and appear FROM the customer's email
     const emailSubject = `New Appointment Booking Request - ${formData.fullName}`;
-    const emailBody = bookingMessage;
     const formSubmitUrl = 'https://formsubmit.co/ajax/' + adminEmail;
     
     const formDataToSend = {

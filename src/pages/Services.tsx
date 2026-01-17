@@ -494,7 +494,9 @@ const Services = () => {
               return (
                 <div
                   key={service.id}
-                  ref={(el) => (serviceRefs.current[service.id] = el)}
+                  ref={(el) => {
+                    serviceRefs.current[service.id] = el;
+                  }}
                   className="bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
                 >
                   {/* Service Header */}
