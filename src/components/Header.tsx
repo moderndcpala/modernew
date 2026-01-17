@@ -61,11 +61,11 @@ const Header = () => {
         <div className="container mx-auto px-4 lg:px-6">
           <div className="flex items-center justify-between h-24 md:h-28 gap-6 md:gap-8">
             {/* Logo */}
-            <div className="flex items-center h-full md:flex-1 md:justify-start">
+            <div className="flex items-center h-full md:flex-1 md:justify-start flex-shrink-0 min-w-[180px]">
               <Link 
                 to="/" 
                 onClick={() => setIsMenuOpen(false)} 
-                className="flex items-center h-full transition-opacity hover:opacity-90 py-2"
+                className="flex items-center h-full transition-opacity hover:opacity-90 py-2 flex-shrink-0"
               >
                 <img 
                   src={logo} 
