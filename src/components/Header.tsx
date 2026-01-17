@@ -84,7 +84,70 @@ const Header = () => {
             {/* Desktop Navigation Links */}
             <nav className="desktop-nav hidden md:flex items-center justify-center flex-1 space-x-4">
               {navLinks.map((link) =>
-                link.link.startsWith('#') ? (
+                link.label === 'Services' ? (
+                  <div key={link.link} className="relative group">
+                    <Link
+                      to={link.link}
+                      className={`desktop-nav-link px-4 py-2 rounded-full font-medium transition-all duration-200 relative ${
+                        isActive(link.link)
+                          ? 'text-white font-semibold is-active'
+                          : 'text-white/90 hover:text-white'
+                      } inline-flex items-center gap-1`}
+                    >
+                      {link.label}
+                      <ChevronDown className="h-4 w-4" />
+                    </Link>
+                    <div className="absolute left-1/2 top-full z-50 w-[360px] -translate-x-1/2 pt-2 opacity-0 pointer-events-none translate-y-2 transition-all duration-200 ease-out group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0">
+                      <div className="rounded-2xl border border-white/20 bg-primary-green/95 p-4 shadow-2xl backdrop-blur-md">
+                        <div className="max-h-[320px] overflow-y-auto pr-1">
+                          {servicesData.map((category) => (
+                            <div key={category.id} className="mb-4 last:mb-0">
+                              <div className="inline-flex rounded-full bg-white/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                                {category.title}
+                              </div>
+                              <div className="mt-2 space-y-1.5">
+                              {[...category.tests]
+                                .sort((a, b) =>
+                                  a.id === 'stool-ph-test' ? 1 : b.id === 'stool-ph-test' ? -1 : 0
+                                )
+                                .map((test) => (
+                                <Link
+                                  key={test.id}
+                                  to="/test-details"
+                                  state={{
+                                    test: {
+                                      id: test.id,
+                                      name: test.title,
+                                      description: test.description,
+                                      details: test.details,
+                                      preparation: test.preparation,
+                                      duration: test.duration,
+                                      price: test.price,
+                                      image: test.image,
+                                    },
+                                    service: category.title,
+                                  }}
+                                  className="block text-sm text-white/90 hover:text-white"
+                                >
+                                  {test.title}
+                                </Link>
+                              ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="mt-3 border-t border-white/20 pt-3">
+                          <Link
+                            to="/services"
+                            className="text-sm font-semibold text-white hover:text-white/90"
+                          >
+                            View all services
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : link.link.startsWith('#') ? (
                   <a
                     key={link.link}
                     href={link.link}
@@ -216,14 +279,31 @@ const Header = () => {
                       <div className="space-y-4 py-2">
                         {servicesData.map((category) => (
                           <div key={category.id}>
-                            <div className="text-xs font-semibold uppercase tracking-wide text-white/70">
+                            <div className="inline-flex rounded-full bg-white/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-white">
                               {category.title}
                             </div>
                             <div className="mt-2 space-y-2">
-                              {category.tests.map((test) => (
+                              {[...category.tests]
+                                .sort((a, b) =>
+                                  a.id === 'stool-ph-test' ? 1 : b.id === 'stool-ph-test' ? -1 : 0
+                                )
+                                .map((test) => (
                                 <Link
                                   key={test.id}
-                                  to="/services"
+                                  to="/test-details"
+                                  state={{
+                                    test: {
+                                      id: test.id,
+                                      name: test.title,
+                                      description: test.description,
+                                      details: test.details,
+                                      preparation: test.preparation,
+                                      duration: test.duration,
+                                      price: test.price,
+                                      image: test.image,
+                                    },
+                                    service: category.title,
+                                  }}
                                   onClick={() => setIsMenuOpen(false)}
                                   className="block text-sm text-white/90 hover:text-white"
                                 >
