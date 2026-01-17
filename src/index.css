@@ -116,6 +116,33 @@ body.desktop-mode .container {
   max-width: 100%;
 }
 
+body.desktop-mode .navbar-logo {
+  min-width: 0 !important;
+}
+
+body.desktop-mode .navbar-logo img {
+  height: clamp(56px, 4.5vw, 88px) !important;
+  max-height: 88px !important;
+}
+
+body.desktop-mode .desktop-nav {
+  flex: 1 1 auto;
+}
+
+body.desktop-mode .nav-actions {
+  flex: 0 1 auto;
+}
+
+body.desktop-mode .desktop-cta-button {
+  padding-left: 14px;
+  padding-right: 14px;
+  font-size: 0.9rem;
+}
+
+body.desktop-mode .contact-cta {
+  display: none;
+}
+
 @media (min-width: 1024px) {
   .hero-section .container {
     max-width: none;
