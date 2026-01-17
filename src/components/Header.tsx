@@ -39,7 +39,7 @@ const Header = () => {
         <div className="container mx-auto px-4 lg:px-6">
           <div className="flex items-center justify-between h-24 md:h-28">
             {/* Logo */}
-            <div className="flex items-center h-full flex-shrink-0">
+            <div className="flex items-center h-full md:flex-1">
               <Link 
                 to="/" 
                 onClick={() => setIsMenuOpen(false)} 
@@ -86,7 +86,7 @@ const Header = () => {
             </nav>
 
             {/* Desktop Right Section - Action Buttons */}
-            <div className="hidden md:flex items-center space-x-3">
+            <div className="hidden md:flex items-center justify-end md:flex-1 space-x-3">
               {/* Desktop Action Buttons */}
               <div className="flex items-center space-x-3">
                 <Link
