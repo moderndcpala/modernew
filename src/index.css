@@ -71,3 +71,46 @@ body.desktop-mode .desktop-nav {
 body.desktop-mode .mobile-menu-button {
   display: none !important;
 }
+
+@media (min-width: 768px) {
+  .desktop-nav {
+    align-items: center;
+  }
+
+  .desktop-nav-link {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 16px;
+    font-size: 0.95rem;
+    font-family: inherit;
+  }
+
+  .desktop-nav-link span {
+    display: none;
+  }
+
+  .desktop-nav-link.is-active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 6px;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    border-radius: 9999px;
+  }
+
+  .desktop-cta-button {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    line-height: 40px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 0.95rem;
+    font-family: inherit;
+  }
+}

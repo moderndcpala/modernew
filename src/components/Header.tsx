@@ -84,7 +84,7 @@ const Header = () => {
                   <a
                     key={link.link}
                     href={link.link}
-                    className="px-4 py-2 rounded-full font-medium transition-all duration-200 relative text-white/90 hover:text-white hover:bg-white/10"
+                    className="desktop-nav-link px-4 py-2 rounded-full font-medium transition-all duration-200 relative text-white/90 hover:text-white hover:bg-white/10"
                   >
                     {link.label}
                   </a>
@@ -92,9 +92,9 @@ const Header = () => {
                   <Link
                     key={link.link}
                     to={link.link}
-                    className={`px-4 py-2 rounded-full font-medium transition-all duration-200 relative ${
+                    className={`desktop-nav-link px-4 py-2 rounded-full font-medium transition-all duration-200 relative ${
                       isActive(link.link)
-                        ? 'text-white bg-white/20 font-semibold'
+                        ? 'text-white bg-white/20 font-semibold is-active'
                         : 'text-white/90 hover:text-white hover:bg-white/10'
                     }`}
                   >
@@ -113,14 +113,14 @@ const Header = () => {
               <div className="flex items-center space-x-3">
                 <Link
                   to="/book-appointment"
-                  className="inline-flex items-center gap-2 bg-white text-primary-green px-5 py-2.5 rounded-full font-semibold shadow-lg ring-1 ring-white/70 hover:bg-gray-50 hover:ring-white transition-all duration-200 hover:-translate-y-0.5"
+                  className="desktop-cta-button inline-flex items-center gap-2 bg-white text-primary-green px-5 py-2.5 rounded-full font-semibold shadow-lg ring-1 ring-white/70 hover:bg-gray-50 hover:ring-white transition-all duration-200 hover:-translate-y-0.5"
                 >
                   <Calendar className="h-4 w-4" />
                   Book Appointment
                 </Link>
                 <a
                   href="#contact"
-                  className="bg-white/10 border border-white/60 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-white hover:text-primary-green transition-all duration-200"
+                  className="desktop-cta-button bg-white/10 border border-white/60 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-white hover:text-primary-green transition-all duration-200"
                 >
                   Contact Us
                 </a>
