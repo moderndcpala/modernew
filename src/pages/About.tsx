@@ -125,8 +125,8 @@ const About = () => {
               About Modern Diagnostic Centre
             </h1>
               <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-relaxed" style={{ textShadow: '1px 1px 4px rgba(0, 0, 0, 0.3)' }}>
-                Serving the community with excellence and dedication for over 25 years
-              </p>
+              Serving the community with excellence and dedication for over 25 years
+            </p>
           </div>
         </div>
       </section>
@@ -173,7 +173,7 @@ const About = () => {
                 {/* About Page Image */}
                 <div className="flex justify-center lg:justify-end order-1 lg:order-2">
                   <div className="flex flex-col gap-6 items-center lg:items-end">
-                    <img
+                    <img 
                       src="/about us page.jpg"
                       alt="Modern Diagnostic Centre Facility"
                       className="w-full max-w-[360px] sm:max-w-[420px] md:max-w-[480px] h-auto rounded-xl shadow-xl object-cover transition-transform duration-300 hover:scale-[1.02]"

@@ -20,29 +20,29 @@ const About = () => {
                 <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
                   <span className="font-semibold text-text-dark">Modern Diagnostic Centre - Pala</span> has been serving the community with excellence
                   and dedication for over <span className="font-semibold text-text-dark">25 years</span>. We are committed to providing accurate,
-                  reliable, and timely diagnostic services using state-of-the-art equipment
-                  and highly qualified medical professionals.
-                </p>
+              reliable, and timely diagnostic services using state-of-the-art equipment
+              and highly qualified medical professionals.
+            </p>
                 <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
-                  Our center is equipped with advanced medical imaging and laboratory
-                  facilities, ensuring that every patient receives the highest standard of care.
-                  We prioritize patient comfort, confidentiality, and precision in all our services.
-                </p>
+              Our center is equipped with advanced medical imaging and laboratory
+              facilities, ensuring that every patient receives the highest standard of care.
+              We prioritize patient comfort, confidentiality, and precision in all our services.
+            </p>
                 <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
-                  Trust us for all your diagnostic needs, and experience the difference that
-                  quality healthcare makes.
-                </p>
+              Trust us for all your diagnostic needs, and experience the difference that
+              quality healthcare makes.
+            </p>
               </div>
-            </div>
+          </div>
 
             {/* Right Column - Images */}
             <div className="order-2 lg:order-2">
               <div className="flex flex-col gap-6 md:gap-8 items-center lg:items-end">
                 {/* 25 Years Image */}
                 <div className="w-full max-w-[180px] md:max-w-[200px] lg:max-w-[220px] transform hover:scale-105 transition-transform duration-300">
-                  <img 
-                    src={yearsImage} 
-                    alt="25 Years of Trust & Care" 
+            <img 
+              src={yearsImage} 
+              alt="25 Years of Trust & Care" 
                     className="w-full h-auto rounded-xl shadow-xl object-contain"
                   />
                 </div>
@@ -52,7 +52,7 @@ const About = () => {
                     src={galleryImage4} 
                     alt="Modern Diagnostic Centre" 
                     className="w-full h-auto rounded-xl shadow-xl object-cover"
-                  />
+            />
                 </div>
               </div>
             </div>
