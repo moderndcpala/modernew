@@ -53,7 +53,7 @@ const Header = () => {
   const navLinks: NavItem[] = [
     { link: '/', label: 'Home' },
     { link: '/about', label: 'About Us' },
-    { link: '/services', label: 'Services' },
+    { link: '/services', label: 'Our Services' },
     { link: '/gallery', label: 'Gallery' },
   ];
 
@@ -185,12 +185,12 @@ const Header = () => {
                   <Calendar className="h-4 w-4" />
                   Book Appointment
                 </Link>
-                <a
-                  href="#contact"
+                <Link
+                  to="/contact"
                   className="desktop-cta-button bg-transparent border border-white/70 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-white/10 transition-all duration-200"
                 >
                   Contact Us
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -362,13 +362,13 @@ const Header = () => {
                 <Calendar className="h-4 w-4" />
                 Book Appointment
               </Link>
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 onClick={() => setIsMenuOpen(false)}
                 className="block w-full bg-transparent border-2 border-white text-white px-5 py-4 rounded-lg font-semibold text-lg text-center hover:bg-white/10 transition-all duration-200"
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </nav>
         </div>

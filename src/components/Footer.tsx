@@ -65,7 +65,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/services" className="hover:text-gray-200 transition-colors">
-                  Services
+                  Our Services
                 </Link>
               </li>
               <li>
@@ -79,9 +79,9 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="#contact" className="hover:text-gray-200 transition-colors">
+                <Link to="/contact" className="hover:text-gray-200 transition-colors">
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

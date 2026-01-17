@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -224,13 +225,13 @@ const Gallery = () => {
           <div className="mt-12 text-center">
             <p className="text-gray-600">
               For more information about our facilities, please{' '}
-              <a href="#contact" className="text-primary-green hover:underline font-medium">
+              <Link to="/contact" className="text-primary-green hover:underline font-medium">
                 contact us
-              </a>
+              </Link>
               {' '}or{' '}
-              <a href="/book-appointment" className="text-primary-green hover:underline font-medium">
+              <Link to="/book-appointment" className="text-primary-green hover:underline font-medium">
                 book an appointment
-              </a>
+              </Link>
             </p>
           </div>
         </div>

@@ -5,6 +5,7 @@ import Gallery from './pages/Gallery';
 import Services from './pages/Services';
 import About from './pages/About';
 import TestDetails from './pages/TestDetails';
+import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/test-details" element={<TestDetails />} />
         <Route path="/book-appointment" element={<BookAppointment />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );
