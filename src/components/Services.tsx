@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Activity, Heart, FileText, Package } from 'lucide-react';
 
 const Services = () => {
@@ -197,6 +198,15 @@ const Services = () => {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <Link
+            to="/services"
+            className="inline-flex items-center justify-center rounded-full bg-primary-green px-8 py-3 text-white font-semibold shadow-md transition-transform duration-300 hover:scale-105"
+          >
+            Go to Services
+          </Link>
         </div>
       </div>
     </section>
