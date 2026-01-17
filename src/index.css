@@ -94,6 +94,26 @@ body.desktop-mode {
 
 body.desktop-mode #root {
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+body.desktop-mode header,
+body.desktop-mode main,
+body.desktop-mode footer {
+  width: 100%;
+  max-width: 100%;
+}
+
+body.desktop-mode html,
+body.desktop-mode body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body.desktop-mode .container {
+  max-width: 100%;
 }
 
 @media (min-width: 1024px) {
