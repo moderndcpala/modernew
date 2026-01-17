@@ -24,6 +24,23 @@ const Header = () => {
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const updateDesktopModeClass = () => {
+      const ua = navigator.userAgent || '';
+      const isMobileUA = /Android|iPhone|iPad|iPod/i.test(ua);
+      const isDesktopMode = isMobileUA && window.innerWidth >= 768;
+      document.body.classList.toggle('desktop-mode', isDesktopMode);
+    };
+
+    updateDesktopModeClass();
+    window.addEventListener('resize', updateDesktopModeClass);
+
+    return () => {
+      window.removeEventListener('resize', updateDesktopModeClass);
+      document.body.classList.remove('desktop-mode');
+    };
+  }, []);
+
   const navLinks = [
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About Us' },
@@ -56,7 +73,7 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center justify-center flex-1 space-x-2">
+            <nav className="desktop-nav hidden md:flex items-center justify-center flex-1 space-x-2">
               {navLinks.map((link) =>
                 link.href ? (
                   <a
@@ -107,7 +124,7 @@ const Header = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-white p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors duration-200"
+              className="mobile-menu-button md:hidden text-white p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors duration-200"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}

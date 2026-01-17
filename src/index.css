@@ -63,3 +63,11 @@ h6 {
 .hero-buttons-appear {
   animation: heroButtonsFade 0.6s ease-out both;
 }
+
+body.desktop-mode .desktop-nav {
+  display: flex !important;
+}
+
+body.desktop-mode .mobile-menu-button {
+  display: none !important;
+}
