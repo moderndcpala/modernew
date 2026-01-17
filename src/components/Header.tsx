@@ -41,11 +41,16 @@ const Header = () => {
     };
   }, []);
 
-  const navLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/about', label: 'About Us' },
-    { to: '/services', label: 'Services' },
-    { href: '#contact', label: 'Contact' },
+  interface NavItem {
+    label: string;
+    link: string;
+  }
+
+  const navLinks: NavItem[] = [
+    { link: '/', label: 'Home' },
+    { link: '/about', label: 'About Us' },
+    { link: '/services', label: 'Services' },
+    { link: '#contact', label: 'Contact' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -75,26 +80,26 @@ const Header = () => {
             {/* Desktop Navigation Links */}
             <nav className="desktop-nav hidden md:flex items-center justify-center flex-1 space-x-2">
               {navLinks.map((link) =>
-                link.href ? (
+                link.link.startsWith('#') ? (
                   <a
-                    key={link.href}
-                    href={link.href}
+                    key={link.link}
+                    href={link.link}
                     className="px-4 py-2 rounded-full font-medium transition-all duration-200 relative text-white/90 hover:text-white hover:bg-white/10"
                   >
                     {link.label}
                   </a>
                 ) : (
                   <Link
-                    key={link.to}
-                    to={link.to}
+                    key={link.link}
+                    to={link.link}
                     className={`px-4 py-2 rounded-full font-medium transition-all duration-200 relative ${
-                      isActive(link.to)
+                      isActive(link.link)
                         ? 'text-white bg-white/20 font-semibold'
                         : 'text-white/90 hover:text-white hover:bg-white/10'
                     }`}
                   >
                     {link.label}
-                    {isActive(link.to) && (
+                    {isActive(link.link) && (
                       <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-white rounded-full" />
                     )}
                   </Link>
@@ -169,10 +174,10 @@ const Header = () => {
           <nav className="flex-1 overflow-y-auto py-8 px-5">
             <div className="flex flex-col space-y-3">
               {navLinks.map((link) =>
-                link.href ? (
+                link.link.startsWith('#') ? (
                   <a
-                    key={link.href}
-                    href={link.href}
+                    key={link.link}
+                    href={link.link}
                     onClick={() => setIsMenuOpen(false)}
                     className="px-4 py-4 rounded-lg font-semibold text-lg transition-all duration-200 relative text-white hover:bg-white hover:bg-opacity-10"
                   >
@@ -180,17 +185,17 @@ const Header = () => {
                   </a>
                 ) : (
                   <Link
-                    key={link.to}
-                    to={link.to}
+                    key={link.link}
+                    to={link.link}
                     onClick={() => setIsMenuOpen(false)}
                     className={`px-4 py-4 rounded-lg font-semibold text-lg transition-all duration-200 relative ${
-                      isActive(link.to)
+                      isActive(link.link)
                         ? 'text-primary-green bg-white'
                         : 'text-white hover:bg-white hover:bg-opacity-10'
                     }`}
                   >
                     {link.label}
-                    {isActive(link.to) && (
+                    {isActive(link.link) && (
                       <span className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-primary-green rounded-r-full" />
                     )}
                   </Link>
