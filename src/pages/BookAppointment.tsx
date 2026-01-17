@@ -326,14 +326,13 @@ _This is an automated booking request from our website._`;
                 <div>
                   <label htmlFor="email" className="flex items-center gap-2 text-sm font-medium text-text-dark mb-2">
                     <Mail className="h-4 w-4 text-primary-green" />
-                    Email *
+                    Email
                   </label>
                   <div className="relative">
                     <input
                       type="email"
                       id="email"
                       name="email"
-                      required
                       value={formData.email}
                       onChange={handleInputChange}
                       className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-transparent"
