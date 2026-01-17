@@ -50,7 +50,7 @@ const Hero = () => {
       ))}
       
       {/* Content */}
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center lg:items-start lg:pt-24" style={{ zIndex: 20 }}>
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center lg:items-center lg:pt-0" style={{ zIndex: 20 }}>
         <div className="w-full max-w-3xl lg:max-w-2xl xl:max-w-3xl font-hero">
           {/* Main Heading */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-white mb-5 md:mb-6 leading-[1.1] md:leading-tight tracking-tight drop-shadow-2xl" style={{ 

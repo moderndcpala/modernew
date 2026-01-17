@@ -63,9 +63,9 @@ const Header = () => {
     <>
       <header className="sticky top-0 z-50 bg-primary-green shadow-lg backdrop-blur-sm bg-opacity-95">
         <div className="container mx-auto px-4 lg:px-6">
-          <div className="flex items-center justify-between h-24 md:h-28 gap-6 md:gap-8 flex-nowrap">
+          <div className="flex items-center justify-between h-24 md:h-24 lg:h-24 gap-5 md:gap-6 flex-nowrap">
             {/* Logo */}
-            <div className="flex items-center h-full md:flex-1 md:justify-start flex-shrink-0 min-w-[150px] md:min-w-[170px] lg:min-w-[190px]">
+            <div className="flex items-center h-full md:flex-1 md:justify-start flex-shrink-0 min-w-[150px] md:min-w-[160px] lg:min-w-[190px] xl:min-w-[210px]">
               <Link 
                 to="/" 
                 onClick={() => setIsMenuOpen(false)} 
@@ -75,14 +75,14 @@ const Header = () => {
                   src={logo} 
                   alt="Modern Diagnostic Centre" 
                   loading="lazy"
-                  className="logo-enter h-24 md:h-28 lg:h-32 w-auto object-contain max-h-full" 
-                  style={{ maxHeight: '128px' }}
+                  className="logo-enter logo-responsive h-24 md:h-24 lg:h-28 w-auto object-contain max-h-full" 
+                  style={{ maxHeight: '112px' }}
                 />
               </Link>
             </div>
 
             {/* Desktop Navigation Links */}
-            <nav className="desktop-nav hidden md:flex items-center justify-center flex-1 space-x-4">
+            <nav className="desktop-nav hidden md:flex items-center justify-center flex-1 md:space-x-2 lg:space-x-3 xl:space-x-4">
               {navLinks.map((link) =>
                 link.label === 'Services' ? (
                   <div key={link.link} className="relative group">
@@ -175,7 +175,7 @@ const Header = () => {
             </nav>
 
             {/* Desktop Right Section - Action Buttons */}
-            <div className="desktop-actions hidden md:flex items-center justify-end md:flex-1 space-x-4 flex-shrink-0">
+            <div className="desktop-actions hidden md:flex items-center justify-end md:flex-1 md:space-x-2 lg:space-x-3 flex-shrink-0">
               {/* Desktop Action Buttons */}
               <div className="flex items-center space-x-3">
                 <Link
