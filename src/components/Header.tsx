@@ -28,7 +28,7 @@ const Header = () => {
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About Us' },
     { to: '/services', label: 'Services' },
-    { to: '/gallery', label: 'Gallery' },
+    { href: '#contact', label: 'Contact' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -56,27 +56,37 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center justify-center flex-1 space-x-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className={`px-4 py-2 rounded-full font-medium transition-all duration-200 relative ${
-                    isActive(link.to)
-                      ? 'text-white bg-white/20 font-semibold'
-                      : 'text-white/90 hover:text-white hover:bg-white/10'
-                  }`}
-                >
-                  {link.label}
-                  {isActive(link.to) && (
-                    <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-white rounded-full" />
-                  )}
-                </Link>
-              ))}
+            <nav className="hidden md:flex items-center justify-center flex-1 space-x-2">
+              {navLinks.map((link) =>
+                link.href ? (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="px-4 py-2 rounded-full font-medium transition-all duration-200 relative text-white/90 hover:text-white hover:bg-white/10"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    className={`px-4 py-2 rounded-full font-medium transition-all duration-200 relative ${
+                      isActive(link.to)
+                        ? 'text-white bg-white/20 font-semibold'
+                        : 'text-white/90 hover:text-white hover:bg-white/10'
+                    }`}
+                  >
+                    {link.label}
+                    {isActive(link.to) && (
+                      <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-white rounded-full" />
+                    )}
+                  </Link>
+                )
+              )}
             </nav>
 
             {/* Desktop Right Section - Action Buttons */}
-            <div className="hidden lg:flex items-center space-x-3">
+            <div className="hidden md:flex items-center space-x-3">
               {/* Desktop Action Buttons */}
               <div className="flex items-center space-x-3">
                 <Link
@@ -97,7 +107,7 @@ const Header = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden text-white p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors duration-200"
+              className="md:hidden text-white p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors duration-200"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
@@ -114,7 +124,7 @@ const Header = () => {
 
       {/* Mobile Menu Overlay - No background, just clickable area */}
       <div
-        className={`fixed inset-0 z-40 lg:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40 md:hidden transition-opacity duration-300 ${
           isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
         onClick={() => setIsMenuOpen(false)}
@@ -122,7 +132,7 @@ const Header = () => {
 
       {/* Mobile Menu Sidebar */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-80 max-w-[85vw] bg-primary-green shadow-2xl transform transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 right-0 z-50 h-full w-80 max-w-[85vw] bg-primary-green shadow-2xl transform transition-transform duration-300 ease-in-out md:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -139,33 +149,44 @@ const Header = () => {
           </div>
 
           {/* Mobile Navigation Links */}
-          <nav className="flex-1 overflow-y-auto py-6 px-4">
-            <div className="flex flex-col space-y-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`px-4 py-3 rounded-lg font-medium transition-all duration-200 relative ${
-                    isActive(link.to)
-                      ? 'text-primary-green bg-white font-semibold'
-                      : 'text-white hover:bg-white hover:bg-opacity-10'
-                  }`}
-                >
-                  {link.label}
-                  {isActive(link.to) && (
-                    <span className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-primary-green rounded-r-full" />
-                  )}
-                </Link>
-              ))}
+          <nav className="flex-1 overflow-y-auto py-8 px-5">
+            <div className="flex flex-col space-y-3">
+              {navLinks.map((link) =>
+                link.href ? (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="px-4 py-4 rounded-lg font-semibold text-lg transition-all duration-200 relative text-white hover:bg-white hover:bg-opacity-10"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`px-4 py-4 rounded-lg font-semibold text-lg transition-all duration-200 relative ${
+                      isActive(link.to)
+                        ? 'text-primary-green bg-white'
+                        : 'text-white hover:bg-white hover:bg-opacity-10'
+                    }`}
+                  >
+                    {link.label}
+                    {isActive(link.to) && (
+                      <span className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-primary-green rounded-r-full" />
+                    )}
+                  </Link>
+                )
+              )}
             </div>
 
             {/* Mobile Action Buttons */}
-            <div className="mt-8 space-y-3">
+            <div className="mt-10 space-y-4">
               <Link
                 to="/book-appointment"
                 onClick={() => setIsMenuOpen(false)}
-                className="inline-flex items-center justify-center gap-2 w-full bg-white text-primary-green px-5 py-3 rounded-full font-semibold text-center shadow-lg ring-2 ring-white/60 hover:bg-gray-50 hover:ring-white transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 w-full bg-white text-primary-green px-5 py-4 rounded-full font-semibold text-lg text-center shadow-lg ring-2 ring-white/60 hover:bg-gray-50 hover:ring-white transition-all duration-200"
               >
                 <Calendar className="h-4 w-4" />
                 Book Appointment
@@ -173,7 +194,7 @@ const Header = () => {
               <a
                 href="#contact"
                 onClick={() => setIsMenuOpen(false)}
-                className="block w-full bg-transparent border-2 border-white text-white px-5 py-3 rounded-lg font-semibold text-center hover:bg-white hover:text-primary-green transition-all duration-200"
+                className="block w-full bg-transparent border-2 border-white text-white px-5 py-4 rounded-lg font-semibold text-lg text-center hover:bg-white hover:text-primary-green transition-all duration-200"
               >
                 Contact Us
               </a>
