@@ -50,7 +50,7 @@ const Header = () => {
     { link: '/', label: 'Home' },
     { link: '/about', label: 'About Us' },
     { link: '/services', label: 'Services' },
-    { link: '#contact', label: 'Contact' },
+    { link: '/gallery', label: 'Gallery' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -120,7 +120,7 @@ const Header = () => {
                 </Link>
                 <a
                   href="#contact"
-                  className="desktop-cta-button bg-white/10 border border-white/60 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-white hover:text-primary-green transition-all duration-200"
+                  className="desktop-cta-button bg-transparent border border-white/70 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-white/15 transition-all duration-200"
                 >
                   Contact Us
                 </a>
