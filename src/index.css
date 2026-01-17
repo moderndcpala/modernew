@@ -88,6 +88,14 @@ body.desktop-mode .mobile-menu-button {
   display: none !important;
 }
 
+body.desktop-mode {
+  overflow-x: hidden;
+}
+
+body.desktop-mode #root {
+  overflow-x: hidden;
+}
+
 @media (min-width: 1024px) {
   .hero-section .container {
     max-width: none;

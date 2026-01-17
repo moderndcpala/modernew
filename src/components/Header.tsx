@@ -84,14 +84,14 @@ const Header = () => {
             {/* Desktop Navigation Links */}
             <nav className="desktop-nav hidden md:flex items-center justify-center flex-1 md:space-x-2 lg:space-x-3 xl:space-x-4">
               {navLinks.map((link) =>
-                link.label === 'Services' ? (
+                link.link === '/services' ? (
                   <div key={link.link} className="relative group">
                     <Link
                       to={link.link}
                       className={`desktop-nav-link px-4 py-2 rounded-full font-medium transition-all duration-200 relative ${
                         isActive(link.link)
                           ? 'text-white font-semibold is-active'
-                          : 'text-white/90 hover:text-white'
+                          : 'text-white/90 hover:text-white hover:bg-white/10'
                       } inline-flex items-center gap-1`}
                     >
                       {link.label}
@@ -151,7 +151,7 @@ const Header = () => {
                   <a
                     key={link.link}
                     href={link.link}
-                    className="desktop-nav-link px-4 py-2 rounded-full font-medium transition-all duration-200 relative text-white/90 hover:text-white"
+                    className="desktop-nav-link px-4 py-2 rounded-full font-medium transition-all duration-200 relative text-white/90 hover:text-white hover:bg-white/10"
                   >
                     {link.label}
                   </a>
@@ -162,7 +162,7 @@ const Header = () => {
                     className={`desktop-nav-link px-4 py-2 rounded-full font-medium transition-all duration-200 relative ${
                       isActive(link.link)
                         ? 'text-white font-semibold is-active'
-                        : 'text-white/90 hover:text-white'
+                        : 'text-white/90 hover:text-white hover:bg-white/10'
                     }`}
                   >
                     {link.label}
@@ -241,7 +241,7 @@ const Header = () => {
           <nav className="flex-1 overflow-y-auto py-8 px-5">
             <div className="flex flex-col space-y-3">
               {navLinks.map((link) =>
-                link.label === 'Services' ? (
+                link.link === '/services' ? (
                   <div key={link.link}>
                     <div className="w-full flex items-center justify-between px-4 py-4 rounded-lg font-semibold text-lg transition-all duration-200 relative text-white hover:bg-white/10">
                       <Link
