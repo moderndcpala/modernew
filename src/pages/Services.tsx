@@ -447,6 +447,23 @@ const Services = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <style>{`
+        @keyframes serviceImageEnter {
+          from {
+            opacity: 0;
+            transform: translateY(16px) scale(0.98);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+
+        .service-image-animate {
+          opacity: 0;
+          animation: serviceImageEnter 0.6s ease-out forwards;
+        }
+      `}</style>
       <Header />
       
       {/* Hero Section for Services Page */}
@@ -480,7 +497,7 @@ const Services = () => {
               src="/services page image 1.png"
               alt="Modern Medical Laboratory"
               loading="lazy"
-              className="w-full h-[220px] md:h-[320px] lg:h-[380px] object-cover transition-transform duration-300 hover:scale-[1.02]"
+              className="service-image-animate w-full h-[220px] md:h-[320px] lg:h-[380px] object-cover transition-transform duration-300 hover:scale-[1.02]"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = 'none';
               }}
@@ -553,7 +570,7 @@ const Services = () => {
                                     src={test.image} 
                                     alt={test.name}
                                     loading="lazy"
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                    className="service-image-animate w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                     onError={(e) => {
                                       // Fallback if image fails to load
                                       (e.target as HTMLImageElement).style.display = 'none';

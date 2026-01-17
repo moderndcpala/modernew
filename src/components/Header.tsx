@@ -59,9 +59,9 @@ const Header = () => {
     <>
       <header className="sticky top-0 z-50 bg-primary-green shadow-lg backdrop-blur-sm bg-opacity-95">
         <div className="container mx-auto px-4 lg:px-6">
-          <div className="flex items-center justify-between h-24 md:h-28 gap-6 md:gap-8">
+          <div className="flex items-center justify-between h-24 md:h-28 gap-6 md:gap-8 flex-nowrap">
             {/* Logo */}
-            <div className="flex items-center h-full md:flex-1 md:justify-start flex-shrink-0 min-w-[180px]">
+            <div className="flex items-center h-full md:flex-1 md:justify-start flex-shrink-0 min-w-[160px] md:min-w-[180px] lg:min-w-[200px]">
               <Link 
                 to="/" 
                 onClick={() => setIsMenuOpen(false)} 
@@ -71,8 +71,8 @@ const Header = () => {
                   src={logo} 
                   alt="Modern Diagnostic Centre" 
                   loading="lazy"
-                  className="h-24 md:h-28 w-auto object-contain max-h-full" 
-                  style={{ maxHeight: '112px' }}
+                  className="logo-enter h-20 md:h-24 lg:h-28 w-auto object-contain max-h-full" 
+                  style={{ maxHeight: '108px' }}
                 />
               </Link>
             </div>
@@ -108,7 +108,7 @@ const Header = () => {
             </nav>
 
             {/* Desktop Right Section - Action Buttons */}
-            <div className="desktop-actions hidden md:flex items-center justify-end md:flex-1 space-x-4">
+            <div className="desktop-actions hidden md:flex items-center justify-end md:flex-1 space-x-4 flex-shrink-0">
               {/* Desktop Action Buttons */}
               <div className="flex items-center space-x-3">
                 <Link
