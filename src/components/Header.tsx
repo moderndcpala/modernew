@@ -49,8 +49,8 @@ const Header = () => {
                   src={logo} 
                   alt="Modern Diagnostic Centre" 
                   loading="lazy"
-                  className="h-28 md:h-32 w-auto object-contain max-h-full" 
-                  style={{ maxHeight: '128px' }}
+                  className="h-24 md:h-28 w-auto object-contain max-h-full" 
+                  style={{ maxHeight: '112px' }}
                 />
               </Link>
             </div>
