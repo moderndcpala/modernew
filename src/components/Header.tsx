@@ -62,7 +62,7 @@ const Header = () => {
   return (
     <>
       <header className="sticky top-0 z-50 bg-primary-green shadow-lg backdrop-blur-sm bg-opacity-95">
-        <div className="container mx-auto px-4 lg:px-6">
+        <div className="navbar-container container mx-auto px-4 lg:px-6">
           <div className="flex items-center justify-between h-24 md:h-24 lg:h-24 gap-5 md:gap-6 flex-nowrap">
             {/* Logo */}
             <div className="navbar-logo flex items-center h-full md:flex-1 md:justify-start flex-shrink-0 min-w-[150px] md:min-w-[160px] lg:min-w-[190px] xl:min-w-[210px]">
@@ -187,7 +187,7 @@ const Header = () => {
                 </Link>
                 <Link
                   to="/contact"
-                  className="desktop-cta-button contact-cta bg-transparent border border-white/70 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-white/10 transition-all duration-200"
+                  className="desktop-cta-button bg-transparent border border-white/70 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-white/10 transition-all duration-200"
                 >
                   Contact Us
                 </Link>
