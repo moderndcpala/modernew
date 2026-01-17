@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary-green: #5F6F52;
+  --color-beige-bg: #F2F0E6;
+  --color-text-dark: #333333;
+  --font-sans: Inter, Roboto, system-ui, sans-serif;
+  --font-hero: Poppins, Inter, Roboto, system-ui, sans-serif;
+}
+
+:root {
+  --primary-green: #5F6F52;
+  --beige-bg: #F2F0E6;
+  --text-dark: #333333;
+}
+
+/* Utility classes using CSS variables as fallback */
+.bg-primary-green {
+  background-color: var(--primary-green);
+}
+
+.bg-beige-bg {
+  background-color: var(--beige-bg);
+}
+
+.text-primary-green {
+  color: var(--primary-green);
+}
+
+.text-text-dark {
+  color: var(--text-dark);
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Roboto, system-ui, sans-serif;
+  color: var(--text-dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Poppins, Inter, Roboto, system-ui, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+@keyframes heroButtonsFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-buttons-appear {
+  animation: heroButtonsFade 0.6s ease-out both;
+}
