@@ -108,7 +108,7 @@ const Header = () => {
             </nav>
 
             {/* Desktop Right Section - Action Buttons */}
-            <div className="hidden md:flex items-center justify-end md:flex-1 space-x-4">
+            <div className="desktop-actions hidden md:flex items-center justify-end md:flex-1 space-x-4">
               {/* Desktop Action Buttons */}
               <div className="flex items-center space-x-3">
                 <Link

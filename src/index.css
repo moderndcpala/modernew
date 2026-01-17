@@ -75,6 +75,7 @@ body.desktop-mode .mobile-menu-button {
 @media (min-width: 768px) {
   .desktop-nav {
     align-items: center;
+    flex-wrap: nowrap;
   }
 
   .desktop-nav-link {
@@ -85,6 +86,7 @@ body.desktop-mode .mobile-menu-button {
     padding: 0 16px;
     font-size: 0.95rem;
     font-family: inherit;
+    white-space: nowrap;
   }
 
   .desktop-nav-link span {
@@ -112,5 +114,10 @@ body.desktop-mode .mobile-menu-button {
     padding-bottom: 0;
     font-size: 0.95rem;
     font-family: inherit;
+    white-space: nowrap;
+  }
+
+  .desktop-actions {
+    flex-wrap: nowrap;
   }
 }
