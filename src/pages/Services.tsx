@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Activity, Heart, FileText, Package, ChevronDown, ChevronUp, CheckCircle, Calendar, Cpu, Stethoscope, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import heroBg from '../assets/hero-bg.png';
+import heroBg from '../assets/hero-bg.webp';
 import galleryImage1 from '../assets/Gallery Image 1.png';
 import galleryImage2 from '../assets/Gallery Image 2.webp';
 import galleryImage3 from '../assets/Gallery Image 3.webp';
