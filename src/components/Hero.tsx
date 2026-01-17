@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Calendar } from 'lucide-react';
-import heroBg1 from '../assets/hero-bg.png';
+import heroBg1 from '../assets/hero-bg.jpeg';
 import heroBg2 from '../assets/hero-bg-2.webp';
 import heroBg3 from '../assets/hero-bg-3.webp';
 
