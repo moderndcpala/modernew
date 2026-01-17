@@ -119,7 +119,7 @@ export const servicesData: ServiceCategory[] = [
         duration: '15-30 minutes',
         price: '₹3000 onwards',
         category: 'Radiology',
-        image: '/ct scan.png',
+        image: '/ct scan.webp',
       },
       {
         id: 'mri',

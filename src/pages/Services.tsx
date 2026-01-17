@@ -64,7 +64,7 @@ const Services = () => {
           preparation: 'Fasting may be required for certain scans. Avoid food 4-6 hours before if contrast is used.',
           duration: '15-30 minutes',
           price: '₹3000 onwards',
-          image: '/ct scan.png'
+          image: '/ct scan.webp'
         },
         { 
           id: '3', 
