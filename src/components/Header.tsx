@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Calendar } from 'lucide-react';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.jpg';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,14 +43,14 @@ const Header = () => {
               <Link 
                 to="/" 
                 onClick={() => setIsMenuOpen(false)} 
-                className="flex items-center h-full transition-opacity hover:opacity-90 py-2 lg:bg-white/95 lg:rounded-md lg:px-3 lg:py-2 lg:shadow-sm"
+                className="flex items-center h-full transition-opacity hover:opacity-90 py-2"
               >
                 <img 
                   src={logo} 
                   alt="Modern Diagnostic Centre" 
                   loading="lazy"
-                  className="h-16 md:h-20 w-auto object-contain max-h-full" 
-                  style={{ maxHeight: '80px' }}
+                  className="h-28 md:h-32 w-auto object-contain max-h-full" 
+                  style={{ maxHeight: '128px' }}
                 />
               </Link>
             </div>

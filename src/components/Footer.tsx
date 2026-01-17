@@ -2,7 +2,7 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import InstagramIcon from './InstagramIcon';
 import GoogleMapsIcon from './GoogleMapsIcon';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.jpg';
 
 const Footer = () => {
   return (
@@ -13,7 +13,7 @@ const Footer = () => {
           {/* Brand + Contact Column */}
           <div>
             <div className="mb-5">
-              <img src={logo} alt="Modern Diagnostic Centre" loading="lazy" className="h-14 sm:h-16 w-auto" />
+              <img src={logo} alt="Modern Diagnostic Centre" loading="lazy" className="h-24 sm:h-28 w-auto" />
               <p className="mt-3 text-sm opacity-90 leading-relaxed">
                 Trusted diagnostic care with accurate results, modern technology, and a patient-first approach.
               </p>
