@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Calendar, ChevronDown } from 'lucide-react';
 import logo from '../assets/logo.jpg';
+import logoDesktop from '../assets/logo 1.png';
 import { servicesData } from '../data/services';
 
 const Header = () => {
@@ -65,7 +66,7 @@ const Header = () => {
         <div className="navbar-container container mx-auto px-4 lg:px-6">
           <div className="flex items-center justify-between h-24 md:h-24 lg:h-24 gap-5 md:gap-6 flex-nowrap">
             {/* Logo */}
-            <div className="navbar-logo flex items-center h-full md:flex-1 md:justify-start flex-shrink-0 min-w-[150px] md:min-w-[160px] lg:min-w-[190px] xl:min-w-[210px]">
+            <div className="navbar-logo flex items-center h-full md:flex-none md:justify-start flex-shrink-0 min-w-[150px] md:min-w-[160px] lg:min-w-[190px] xl:min-w-[210px] mr-auto">
               <Link 
                 to="/" 
                 onClick={() => setIsMenuOpen(false)} 
@@ -75,7 +76,14 @@ const Header = () => {
                   src={logo} 
                   alt="Modern Diagnostic Centre" 
                   loading="lazy"
-                  className="logo-enter logo-responsive h-24 md:h-24 lg:h-28 w-auto object-contain max-h-full" 
+                  className="logo-enter logo-responsive h-24 w-auto object-contain max-h-full md:hidden" 
+                  style={{ maxHeight: '112px' }}
+                />
+                <img 
+                  src={logoDesktop} 
+                  alt="Modern Diagnostic Centre" 
+                  loading="lazy"
+                  className="logo-enter logo-responsive hidden md:block h-24 lg:h-28 w-auto object-contain max-h-full" 
                   style={{ maxHeight: '112px' }}
                 />
               </Link>

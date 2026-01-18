@@ -155,6 +155,10 @@ body.desktop-mode .desktop-actions {
 }
 
 @media (min-width: 1024px) {
+  .navbar-container {
+    max-width: 100%;
+  }
+
   .hero-section .container {
     max-width: none;
     width: 100%;
