@@ -218,7 +218,7 @@ const OurTests = () => {
           display: none;
         }
       `}</style>
-      <section id="our-tests" ref={sectionRef} className="py-16 bg-beige-bg lg:bg-white overflow-hidden">
+      <section id="our-tests" ref={sectionRef} className="py-16 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl lg:max-w-3xl mx-auto">
             <div className="section-header text-center mb-12 opacity-0">

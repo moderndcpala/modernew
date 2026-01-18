@@ -157,7 +157,7 @@ const WhyChooseUs = () => {
                     ref={(el) => {
                       itemRefs.current[index] = el;
                     }}
-                    className={`fade-in-up-delay flex flex-col items-start p-6 rounded-lg hover:shadow-lg transition-all duration-300 bg-beige-bg hover:bg-opacity-80 ${
+                    className={`fade-in-up-delay flex flex-col items-start p-6 rounded-lg hover:shadow-lg transition-all duration-300 bg-white ${
                       isVisible ? 'visible' : ''
                     }`}
                     style={{
