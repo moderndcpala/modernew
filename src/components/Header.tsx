@@ -8,12 +8,14 @@ import { servicesData } from '../data/services';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isDesktopServicesOpen, setIsDesktopServicesOpen] = useState(false);
   const location = useLocation();
 
   // Close menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
     setIsServicesOpen(false);
+    setIsDesktopServicesOpen(false);
   }, [location]);
 
   // Prevent body scroll when mobile menu is open
@@ -23,6 +25,7 @@ const Header = () => {
     } else {
       document.body.style.overflow = 'unset';
       setIsServicesOpen(false);
+      setIsDesktopServicesOpen(false);
     }
     return () => {
       document.body.style.overflow = 'unset';
@@ -93,19 +96,44 @@ const Header = () => {
             <nav className="desktop-nav hidden md:flex items-center justify-center flex-1 md:space-x-2 lg:space-x-3 xl:space-x-4">
               {navLinks.map((link) =>
                 link.link === '/services' ? (
-                  <div key={link.link} className="relative group">
-                    <Link
-                      to={link.link}
-                      className={`desktop-nav-link px-4 py-2 rounded-full font-medium transition-all duration-200 relative ${
+                  <div
+                    key={link.link}
+                    className="relative"
+                  >
+                    <div
+                      className={`desktop-nav-link rounded-full font-medium transition-all duration-200 relative inline-flex items-center ${
                         isActive(link.link)
                           ? 'text-white font-semibold is-active'
                           : 'text-white/90 hover:text-white hover:bg-white/10'
-                      } inline-flex items-center gap-1`}
+                      }`}
                     >
-                      {link.label}
-                      <ChevronDown className="h-4 w-4" />
-                    </Link>
-                    <div className="absolute left-1/2 top-full z-50 w-[360px] -translate-x-1/2 pt-2 opacity-0 pointer-events-none translate-y-2 transition-all duration-200 ease-out group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0">
+                      <Link
+                        to={link.link}
+                        className="relative z-10 whitespace-nowrap"
+                      >
+                        {link.label}
+                      </Link>
+                      <button
+                        type="button"
+                        aria-label="Toggle services menu"
+                        aria-expanded={isDesktopServicesOpen}
+                        onClick={(event) => {
+                          event.preventDefault();
+                          event.stopPropagation();
+                          setIsDesktopServicesOpen((prev) => !prev);
+                        }}
+                        className="ml-1 inline-flex h-7 w-7 items-center justify-center rounded-full text-inherit transition-all duration-200 relative z-20 pointer-events-auto"
+                      >
+                        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isDesktopServicesOpen ? 'rotate-180' : ''}`} />
+                      </button>
+                    </div>
+                    <div
+                      className={`absolute left-1/2 top-full z-50 w-[360px] -translate-x-1/2 pt-2 transition-all duration-200 ease-out ${
+                        isDesktopServicesOpen
+                          ? 'opacity-100 pointer-events-auto translate-y-0'
+                          : 'opacity-0 pointer-events-none translate-y-2'
+                      }`}
+                    >
                       <div className="rounded-2xl border border-white/20 bg-primary-green/95 p-4 shadow-2xl backdrop-blur-md">
                         <div className="max-h-[320px] overflow-y-auto pr-1">
                           {servicesData.map((category) => (
