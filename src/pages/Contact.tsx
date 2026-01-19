@@ -74,6 +74,16 @@ const Contact = () => {
                     </a>
                   </li>
                 </ul>
+                <div className="mt-6">
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=1st+Floor,+Puthumana+Towers,+Near+Government+Hospital+Junction,+Pala+Town,+Kottayam-686575,+Kerala"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full border border-primary-green px-5 py-3 text-sm font-semibold text-primary-green hover:bg-primary-green hover:text-white transition-all duration-200"
+                  >
+                    Get Directions
+                  </a>
+                </div>
               </div>
 
               <div className="rounded-2xl border border-gray-200 p-6 shadow-sm">
@@ -109,6 +119,7 @@ const Contact = () => {
                   </a>
                 </div>
               </div>
+
             </div>
           </div>
         </section>

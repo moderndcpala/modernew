@@ -68,7 +68,7 @@ const Header = () => {
       <header className="sticky top-0 z-50 bg-primary-green shadow-lg backdrop-blur-sm bg-opacity-95">
         <div className="navbar-container container mx-auto px-4 lg:px-6">
           <div className="flex items-center justify-between h-24 md:h-24 lg:h-24 gap-5 md:gap-6 flex-nowrap">
-            {/* Logo */}
+          {/* Logo */}
             <div className="navbar-logo flex items-center h-full md:flex-none md:justify-start flex-shrink-0 min-w-[150px] md:min-w-[160px] lg:min-w-[190px] xl:min-w-[210px] mr-auto">
               <Link 
                 to="/" 
@@ -89,10 +89,10 @@ const Header = () => {
                   className="logo-enter logo-responsive hidden md:block h-24 lg:h-28 w-auto object-contain max-h-full" 
                   style={{ maxHeight: '112px' }}
                 />
-              </Link>
-            </div>
+            </Link>
+          </div>
 
-            {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links */}
             <nav className="desktop-nav hidden md:flex items-center justify-center flex-1 md:space-x-2 lg:space-x-3 xl:space-x-4">
               {navLinks.map((link) =>
                 link.link === '/services' ? (
@@ -112,7 +112,7 @@ const Header = () => {
                         className="relative z-10 whitespace-nowrap"
                       >
                         {link.label}
-                      </Link>
+            </Link>
                       <button
                         type="button"
                         aria-label="Toggle services menu"
@@ -166,7 +166,7 @@ const Header = () => {
                                   className="block text-sm text-white/90 hover:text-white"
                                 >
                                   {test.title}
-                                </Link>
+            </Link>
                               ))}
                               </div>
                             </div>
@@ -178,7 +178,7 @@ const Header = () => {
                             className="text-sm font-semibold text-white hover:text-white/90"
                           >
                             View all services
-                          </Link>
+            </Link>
                         </div>
                       </div>
                     </div>
@@ -205,51 +205,47 @@ const Header = () => {
                     {isActive(link.link) && (
                       <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-white rounded-full" />
                     )}
-                  </Link>
+            </Link>
                 )
               )}
-            </nav>
+          </nav>
 
             {/* Desktop Right Section - Action Buttons */}
             <div className="desktop-actions nav-actions hidden md:flex items-center justify-end md:flex-1 md:space-x-2 lg:space-x-3 flex-shrink-0">
-              {/* Desktop Action Buttons */}
+          {/* Desktop Action Buttons */}
               <div className="flex items-center space-x-3">
-                <Link
-                  to="/book-appointment"
+            <Link
+              to="/book-appointment"
                   className="desktop-cta-button inline-flex items-center gap-2 bg-white text-primary-green px-5 py-2.5 rounded-full font-semibold shadow-lg hover:bg-white/90 transition-all duration-200 hover:-translate-y-0.5"
-                >
+            >
                   <Calendar className="h-4 w-4" />
-                  Book Appointment
-                </Link>
+              Book Appointment
+            </Link>
                 <Link
                   to="/contact"
                   className="desktop-cta-button bg-transparent border border-white/70 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-white/10 transition-all duration-200"
-                >
-                  Contact Us
+            >
+              Contact Us
                 </Link>
               </div>
-            </div>
+          </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="mobile-menu-button md:hidden text-white p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors duration-200"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-              aria-expanded={isMenuOpen}
-            >
-              {isMenuOpen ? (
-                <X className="h-7 w-7" strokeWidth={2.5} />
-              ) : (
-                <Menu className="h-7 w-7" strokeWidth={2.5} />
-              )}
-            </button>
+          {/* Mobile Menu Button */}
+          <button
+            className="mobile-menu-button md:hidden text-white p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors duration-200"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+          >
+            <Menu className="h-7 w-7" strokeWidth={2.5} />
+          </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu Overlay - No background, just clickable area */}
+      {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40 bg-primary-green md:hidden transition-opacity duration-300 ${
           isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
         onClick={() => setIsMenuOpen(false)}
@@ -270,8 +266,8 @@ const Header = () => {
               aria-label="Close menu"
             >
               <X className="h-6 w-6" strokeWidth={2.5} />
-            </button>
-          </div>
+          </button>
+        </div>
 
           {/* Mobile Navigation Links */}
           <nav className="flex-1 overflow-y-auto py-8 px-5">
@@ -280,13 +276,13 @@ const Header = () => {
                 link.link === '/services' ? (
                   <div key={link.link}>
                     <div className="w-full flex items-center justify-between px-4 py-4 rounded-lg font-semibold text-lg transition-all duration-200 relative text-white hover:bg-white/10">
-                      <Link
+              <Link
                         to={link.link}
-                        onClick={() => setIsMenuOpen(false)}
+                onClick={() => setIsMenuOpen(false)}
                         className="flex-1"
-                      >
+              >
                         {link.label}
-                      </Link>
+              </Link>
                       <button
                         type="button"
                         onClick={(event) => {
@@ -324,7 +320,7 @@ const Header = () => {
                                   a.id === 'stool-ph-test' ? 1 : b.id === 'stool-ph-test' ? -1 : 0
                                 )
                                 .map((test) => (
-                                <Link
+              <Link
                                   key={test.id}
                                   to="/test-details"
                                   state={{
@@ -340,22 +336,22 @@ const Header = () => {
                                     },
                                     service: category.title,
                                   }}
-                                  onClick={() => setIsMenuOpen(false)}
+                onClick={() => setIsMenuOpen(false)}
                                   className="block text-sm text-white/90 hover:text-white"
-                                >
+              >
                                   {test.title}
-                                </Link>
+              </Link>
                               ))}
                             </div>
                           </div>
                         ))}
-                        <Link
-                          to="/services"
-                          onClick={() => setIsMenuOpen(false)}
+              <Link
+                to="/services"
+                onClick={() => setIsMenuOpen(false)}
                           className="inline-flex items-center text-sm font-semibold text-white hover:text-white/90"
-                        >
+              >
                           View all services
-                        </Link>
+              </Link>
                       </div>
                     </div>
                   </div>
@@ -369,21 +365,21 @@ const Header = () => {
                     {link.label}
                   </a>
                 ) : (
-                  <Link
+              <Link
                     key={link.link}
                     to={link.link}
-                    onClick={() => setIsMenuOpen(false)}
+                onClick={() => setIsMenuOpen(false)}
                     className={`px-4 py-4 rounded-lg font-semibold text-lg transition-all duration-200 relative ${
                       isActive(link.link)
                         ? 'text-white font-semibold'
                         : 'text-white hover:bg-white/10'
                     }`}
-                  >
+              >
                     {link.label}
                     {isActive(link.link) && (
                       <span className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-primary-green rounded-r-full" />
                     )}
-                  </Link>
+              </Link>
                 )
               )}
             </div>
@@ -406,8 +402,8 @@ const Header = () => {
                 Contact Us
               </Link>
             </div>
-          </nav>
-        </div>
+            </nav>
+          </div>
       </div>
     </>
   );
