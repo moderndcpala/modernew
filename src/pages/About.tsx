@@ -164,7 +164,7 @@ const About = () => {
                       providing accurate, reliable, and timely diagnostic services to the community.
                     </p>
                     <p>
-                      Our center is equipped with advanced medical imaging and laboratory facilities, 
+                      Our centre is equipped with advanced medical imaging and laboratory facilities, 
                       ensuring that every patient receives the highest standard of care. We understand 
                       that accurate diagnosis is the foundation of effective treatment, which is why we 
                       invest in the latest technology and maintain the highest quality standards.
@@ -299,7 +299,7 @@ const About = () => {
                   <div className="relative z-10">
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-dark mb-4 md:mb-6 leading-tight">Our Vision</h3>
                     <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-                    To be the leading diagnostic center in the region, recognized for excellence in 
+                    To be the leading Diagnostic Centre in the region, recognized for excellence in 
                     healthcare services, innovation, and compassionate patient care. We strive to 
                     make quality diagnostics accessible to everyone in our community.
                   </p>
@@ -465,4 +465,5 @@ const About = () => {
 };
 
 export default About;
+
 

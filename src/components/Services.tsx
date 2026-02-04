@@ -11,7 +11,7 @@ const Services = () => {
     {
       icon: Activity,
       title: 'Radiology',
-      description: 'Advanced imaging services including X-ray, CT scan, MRI, and ultrasound with cutting-edge technology.',
+      description: 'Advanced imaging services including X-ray, ultrasound, mammography, and bone densitometry.',
     },
     {
       icon: FileText,
@@ -21,7 +21,7 @@ const Services = () => {
     {
       icon: Heart,
       title: 'Cardiology',
-      description: 'Complete cardiac care with ECG, Echo, and stress tests performed by experienced cardiologists.',
+      description: 'Complete cardiac care with ECG and advanced heart monitoring performed by experienced cardiologists.',
     },
     {
       icon: Package,

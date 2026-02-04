@@ -45,9 +45,14 @@ const Contact = () => {
                 <ul className="space-y-4 text-sm sm:text-base text-gray-700">
                   <li className="flex items-start gap-3">
                     <Phone className="h-5 w-5 text-primary-green mt-1" />
-                    <a href="tel:+917306440844" className="hover:text-primary-green">
-                      +91 73064 40844
-                    </a>
+                    <div className="flex flex-col">
+                      <a href="tel:+914822201874" className="hover:text-primary-green">
+                        04822-201874
+                      </a>
+                      <a href="tel:+919495508847" className="hover:text-primary-green">
+                        9495-508-847
+                      </a>
+                    </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <Mail className="h-5 w-5 text-primary-green mt-1" />
@@ -71,6 +76,8 @@ const Contact = () => {
                       Near Government Hospital Junction,
                       <br />
                       Pala Town, Kottayam-686575, Kerala
+                      <br />
+                      PIN: 686575
                     </a>
                   </li>
                 </ul>
@@ -94,9 +101,7 @@ const Contact = () => {
                   <li className="flex items-start gap-3">
                     <Clock className="h-5 w-5 text-primary-green mt-1" />
                     <span>
-                      Monday - Saturday: 8:00 AM - 8:00 PM
-                      <br />
-                      Sunday: 9:00 AM - 2:00 PM
+                      Daily: 6:30 AM - 6:00 PM
                     </span>
                   </li>
                   <li className="text-gray-600">
@@ -130,3 +135,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
+

@@ -8,8 +8,6 @@ import { User, Phone, Mail, Activity, Calendar, Clock, CheckCircle2, Send, FileC
 const serviceTestsMap: { [key: string]: string[] } = {
   'Radiology': [
     'X-Ray',
-    'CT Scan',
-    'MRI',
     'Ultrasound',
     'Mammography',
     'Bone Densitometry',
@@ -26,18 +24,18 @@ const serviceTestsMap: { [key: string]: string[] } = {
   ],
   'Cardiology': [
     'ECG (Electrocardiogram)',
-    'Echocardiogram',
-    'Stress Test',
     'Holter Monitoring',
     'Cardiac Markers',
   ],
   'Health Packages': [
-    'Basic Health Checkup',
-    'Comprehensive Health Package',
-    'Executive Health Package',
-    'Women\'s Health Package',
-    'Senior Citizen Package',
-    'Pre-Marital Health Package',
+    'Modern Health',
+    'Modern Health 1',
+    'Master Health Checkup',
+    'Diabetic Profile',
+    'Women Health Care',
+    'Cardiac Panel',
+    'Executive Health Checkup',
+    'Full Body Checkup',
   ],
 };
 
@@ -505,6 +503,8 @@ _This is an automated booking request from our website._`;
 };
 
 export default BookAppointment;
+
+
 
 
 

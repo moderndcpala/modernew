@@ -26,9 +26,6 @@ const OurTests = () => {
     'diabetes-profile', // Diabetes Profile
     'liver-function', // Liver Function Test
     'kidney-function', // Kidney Function Test
-    'ct-scan', // CT Scan
-    'mri', // MRI Scan
-    'echo', // Echocardiogram
   ];
 
   // Flatten all tests from all categories and sort by importance
@@ -312,7 +309,6 @@ const OurTests = () => {
                                   description: test.description,
                                   details: test.details,
                                   preparation: test.preparation,
-                                  duration: test.duration,
                                   price: test.price,
                                   image: test.image,
                                 },

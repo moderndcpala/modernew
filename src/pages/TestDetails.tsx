@@ -1,7 +1,7 @@
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { ArrowLeft, Calendar, Clock, DollarSign, Info, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Calendar, DollarSign, Info, CheckCircle } from 'lucide-react';
 
 const TestDetails = () => {
   const location = useLocation();
@@ -13,7 +13,6 @@ const TestDetails = () => {
       description: string;
       details?: string;
       preparation?: string;
-      duration?: string;
       price?: string;
       image?: string;
     };
@@ -127,16 +126,6 @@ const TestDetails = () => {
                     <h3 className="text-xl font-bold text-text-dark">Preparation</h3>
                   </div>
                   <p className="text-gray-700 leading-relaxed">{test.preparation}</p>
-                </div>
-              )}
-
-              {test.duration && (
-                <div className="bg-white rounded-xl shadow-lg p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Clock className="h-6 w-6 text-primary-green" />
-                    <h3 className="text-xl font-bold text-text-dark">Duration</h3>
-                  </div>
-                  <p className="text-gray-700 leading-relaxed font-semibold text-lg">{test.duration}</p>
                 </div>
               )}
 

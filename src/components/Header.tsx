@@ -157,7 +157,6 @@ const Header = () => {
                                       description: test.description,
                                       details: test.details,
                                       preparation: test.preparation,
-                                      duration: test.duration,
                                       price: test.price,
                                       image: test.image,
                                     },
@@ -330,7 +329,6 @@ const Header = () => {
                                       description: test.description,
                                       details: test.details,
                                       preparation: test.preparation,
-                                      duration: test.duration,
                                       price: test.price,
                                       image: test.image,
                                     },
@@ -410,4 +408,6 @@ const Header = () => {
 };
 
 export default Header;
+
+
 

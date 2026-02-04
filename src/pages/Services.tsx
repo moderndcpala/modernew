@@ -21,8 +21,10 @@ interface Service {
     description: string;
     details?: string;
     preparation?: string;
-    duration?: string;
     price?: string;
+    testsList?: string[];
+    originalPrice?: string;
+    discountedPrice?: string;
     image?: string;
   }[];
 }
@@ -52,57 +54,33 @@ const Services = () => {
           description: 'Digital X-ray imaging for bones, chest, and various body parts with instant results',
           details: 'Our state-of-the-art digital X-ray technology provides high-resolution images with minimal radiation exposure. Ideal for diagnosing fractures, infections, arthritis, and lung conditions. Results are available immediately after the scan.',
           preparation: 'No special preparation required. Remove jewelry and metal objects before the scan.',
-          duration: '5-10 minutes',
           price: '₹400 onwards',
           image: '/xray.jpg'
         },
         { 
           id: '2', 
-          name: 'CT Scan', 
-          description: 'Computed Tomography scan providing detailed cross-sectional images of internal organs',
-          details: 'Advanced CT scanning technology offers detailed 3D images of internal organs, bones, soft tissues, and blood vessels. Essential for detecting tumors, internal injuries, and monitoring treatment progress. Our low-dose CT technology minimizes radiation exposure.',
-          preparation: 'Fasting may be required for certain scans. Avoid food 4-6 hours before if contrast is used.',
-          duration: '15-30 minutes',
-          price: '₹3000 onwards',
-          image: '/ct scan.webp'
-        },
-        { 
-          id: '3', 
-          name: 'MRI', 
-          description: 'Magnetic Resonance Imaging for detailed images of soft tissues, brain, and joints',
-          details: 'MRI uses powerful magnets and radio waves to create detailed images without radiation. Excellent for brain, spinal cord, joints, and soft tissue imaging. Our high-field MRI provides superior image quality for accurate diagnosis.',
-          preparation: 'Remove all metal objects. Inform us if you have any implants or metal in your body.',
-          duration: '30-60 minutes',
-          price: '₹5000 onwards',
-          image: '/mri.webp'
-        },
-        { 
-          id: '4', 
           name: 'Ultrasound', 
           description: 'Safe, non-invasive imaging using sound waves for pregnancy, abdomen, and more',
           details: 'Ultrasound imaging is completely safe with no radiation. Perfect for pregnancy monitoring, abdominal organ evaluation, and vascular studies. Real-time imaging allows immediate assessment and guidance.',
           preparation: 'Fasting may be required for abdominal scans. Drink water for pelvic/obstetric scans.',
-          duration: '15-30 minutes',
           price: '₹800 onwards',
           image: '/ultrasound.png'
         },
         { 
-          id: '5', 
+          id: '3', 
           name: 'Mammography', 
           description: 'Breast imaging for early detection of breast cancer and abnormalities',
           details: 'Digital mammography with advanced imaging technology for early breast cancer detection. Our low-dose digital mammography provides clear images with minimal discomfort. Essential for women over 40 and those with family history.',
           preparation: 'Avoid deodorant, lotions, or powders on the day of examination.',
-          duration: '15-20 minutes',
           price: '₹1500 onwards',
-          image: 'https://images.unsplash.com/photo-1551601651-0a4cf9e6c8f5?w=800&h=600&fit=crop'
+          image: '/mammography.jpg'
         },
         { 
-          id: '6', 
+          id: '4', 
           name: 'Bone Densitometry', 
           description: 'Bone density testing to diagnose osteoporosis and assess fracture risk',
           details: 'DEXA scan measures bone mineral density to diagnose osteoporosis and assess fracture risk. Quick, painless, and uses minimal radiation. Recommended for postmenopausal women and those at risk of bone loss.',
           preparation: 'No special preparation. Avoid calcium supplements 24 hours before the test.',
-          duration: '10-15 minutes',
           price: '₹1200 onwards',
           image: '/bone densiometery.jpg'
         },
@@ -116,12 +94,20 @@ const Services = () => {
       image: galleryImage2,
       tests: [
         { 
+          id: 'stool-ph-test', 
+          name: 'Stool pH Test', 
+          description: 'Digestive health assessment measuring stool acidity or alkalinity.',
+          details: 'Stool pH Test helps assess digestive health by measuring stool acidity or alkalinity. It can indicate malabsorption, bacterial overgrowth, or dietary imbalances that affect gut function.',
+          preparation: 'No special preparation required. Follow collection instructions provided by the lab.',
+          price: '₹200 onwards',
+          image: '/stool ph test.png'
+        },
+        { 
           id: '1', 
           name: 'Complete Blood Count (CBC)', 
           description: 'Complete blood analysis including red cells, white cells, and platelets',
           details: 'CBC is one of the most common blood tests that evaluates your overall health. It measures red blood cells, white blood cells, hemoglobin, hematocrit, and platelets. Essential for detecting anemia, infections, bleeding disorders, and various other conditions.',
           preparation: 'Fasting not required. Can be done at any time.',
-          duration: 'Results in 2-4 hours',
           price: '₹300 onwards',
           image: '/complete-blood-count.jpg'
         },
@@ -131,7 +117,6 @@ const Services = () => {
           description: 'Comprehensive metabolic panel to assess organ function and overall health',
           details: 'Comprehensive metabolic panel evaluates kidney function, liver function, electrolyte balance, blood sugar, and protein levels. Provides a complete picture of your metabolic health and organ function.',
           preparation: 'Fasting for 8-12 hours required. Only water allowed.',
-          duration: 'Results in 4-6 hours',
           price: '₹800 onwards',
           image: '/blood chemistry panel.webp'
         },
@@ -141,19 +126,8 @@ const Services = () => {
           description: 'Cholesterol and triglyceride levels to assess cardiovascular health',
           details: 'Measures total cholesterol, LDL (bad cholesterol), HDL (good cholesterol), and triglycerides. Essential for assessing cardiovascular risk and monitoring heart health. Recommended annually for adults over 20.',
           preparation: 'Fasting for 12 hours required. Avoid fatty foods the day before.',
-          duration: 'Results in 4-6 hours',
           price: '₹500 onwards',
           image: '/lipid profile.jpg'
-        },
-        { 
-          id: '4', 
-          name: 'Diabetes Profile', 
-          description: 'Blood glucose, HbA1c, and related tests for diabetes diagnosis and management',
-          details: 'Comprehensive diabetes screening including fasting blood sugar, postprandial blood sugar, HbA1c (3-month average), and insulin levels. Essential for diabetes diagnosis, monitoring, and management.',
-          preparation: 'Fasting for 8-12 hours required. Follow specific instructions for postprandial test.',
-          duration: 'Results in 4-6 hours',
-          price: '₹800 onwards',
-          image: '/daibetic.webp'
         },
         { 
           id: '5', 
@@ -161,7 +135,6 @@ const Services = () => {
           description: 'TSH, T3, T4 levels to evaluate thyroid gland function',
           details: 'Measures Thyroid Stimulating Hormone (TSH), T3, and T4 levels to evaluate thyroid function. Essential for diagnosing hypothyroidism, hyperthyroidism, and monitoring thyroid treatment.',
           preparation: 'Fasting not required. Can be done at any time.',
-          duration: 'Results in 4-6 hours',
           price: '₹600 onwards',
           image: '/thyroid function.jpg'
         },
@@ -171,7 +144,6 @@ const Services = () => {
           description: 'Comprehensive panel to assess liver health and detect liver diseases',
           details: 'Comprehensive panel including ALT, AST, ALP, bilirubin, and protein levels. Evaluates liver health, detects liver damage, inflammation, and monitors treatment of liver diseases.',
           preparation: 'Fasting for 8-12 hours recommended. Avoid alcohol 24 hours before.',
-          duration: 'Results in 4-6 hours',
           price: '₹600 onwards',
           image: '/Liver-function-test.png'
         },
@@ -181,7 +153,6 @@ const Services = () => {
           description: 'Renal function panel including creatinine, BUN, and electrolytes',
           details: 'Measures creatinine, Blood Urea Nitrogen (BUN), and electrolyte levels to assess kidney function. Essential for detecting kidney disease, monitoring kidney health, and evaluating treatment effectiveness.',
           preparation: 'Fasting not required. Stay well hydrated.',
-          duration: 'Results in 4-6 hours',
           price: '₹550 onwards',
           image: '/kidney function.webp'
         },
@@ -191,7 +162,6 @@ const Services = () => {
           description: 'Comprehensive hormone testing for various endocrine disorders',
           details: 'Comprehensive hormone panel including cortisol, growth hormone, sex hormones, and other endocrine markers. Essential for diagnosing hormonal imbalances, fertility issues, and endocrine disorders.',
           preparation: 'Specific preparation depends on the hormone being tested. Follow doctor\'s instructions.',
-          duration: 'Results in 24-48 hours',
           price: '₹1000 onwards',
           image: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&h=600&fit=crop'
         },
@@ -200,7 +170,7 @@ const Services = () => {
     {
       id: 'cardiology',
       title: 'Cardiology',
-      description: 'Complete cardiac care with ECG, Echo, and stress tests performed by experienced cardiologists',
+      description: 'Complete cardiac care with ECG and advanced heart monitoring by experienced cardiologists',
       icon: Heart,
       image: galleryImage3,
       tests: [
@@ -210,47 +180,24 @@ const Services = () => {
           description: 'Recording of electrical activity of the heart to detect heart rhythm abnormalities',
           details: 'ECG records the electrical signals of your heart to detect irregular heartbeats, heart attacks, and other cardiac conditions. Quick, painless, and non-invasive test that takes just a few minutes.',
           preparation: 'No special preparation. Avoid caffeine and smoking before the test.',
-          duration: '5-10 minutes',
           price: '₹300 onwards',
           image: '/ecg.webp'
         },
         { 
           id: '2', 
-          name: 'Echocardiogram', 
-          description: 'Ultrasound of the heart to visualize structure and function',
-          details: 'Echocardiogram uses ultrasound waves to create detailed images of your heart\'s structure, valves, and pumping function. Essential for diagnosing heart valve problems, heart failure, and congenital heart defects.',
-          preparation: 'No special preparation required.',
-          duration: '30-45 minutes',
-          price: '₹2000 onwards',
-          image: '/echocardiogram.png'
-        },
-        { 
-          id: '3', 
-          name: 'Stress Test', 
-          description: 'Exercise stress test to evaluate heart function under physical stress',
-          details: 'Stress test monitors your heart\'s response to physical exercise. Helps diagnose coronary artery disease, evaluate exercise capacity, and assess the effectiveness of heart treatments. Performed on a treadmill or stationary bike.',
-          preparation: 'Fasting for 2-3 hours. Wear comfortable clothing and shoes. Avoid caffeine.',
-          duration: '30-60 minutes',
-          price: '₹2500 onwards',
-          image: '/stress test.jpg'
-        },
-        { 
-          id: '4', 
           name: 'Holter Monitoring', 
           description: '24-48 hour continuous ECG monitoring for intermittent heart rhythm issues',
           details: 'Holter monitor is a portable device that continuously records your heart\'s electrical activity for 24-48 hours. Essential for detecting irregular heartbeats that occur intermittently and may not show up during a regular ECG.',
           preparation: 'No special preparation. Device will be attached and you can go about normal activities.',
-          duration: '24-48 hours monitoring',
           price: '₹1500 onwards',
           image: '/holter monitoring.webp'
         },
         { 
-          id: '5', 
+          id: '3', 
           name: 'Cardiac Markers', 
           description: 'Blood tests including Troponin, CK-MB for heart attack diagnosis',
           details: 'Cardiac marker tests measure specific proteins in the blood that indicate heart muscle damage. Essential for diagnosing heart attacks, evaluating chest pain, and monitoring heart conditions. Includes Troponin, CK-MB, and other markers.',
           preparation: 'No special preparation. Can be done urgently if heart attack is suspected.',
-          duration: 'Results in 1-2 hours',
           price: '₹800 onwards',
           image: '/cardiac markers.png'
         },
@@ -263,65 +210,192 @@ const Services = () => {
       icon: Package,
       image: galleryImage1,
       tests: [
-        { 
-          id: '1', 
-          name: 'Basic Health Checkup', 
-          description: 'Essential tests for overall health screening including CBC, blood sugar, and basic tests',
-          details: 'Includes Complete Blood Count (CBC), Blood Sugar (Fasting & PP), Lipid Profile, Liver Function Test, Kidney Function Test, and Urine Analysis. Perfect for annual health screening and basic health assessment.',
-          preparation: 'Fasting for 8-12 hours required.',
-          duration: '2-3 hours',
-          price: '₹1500 onwards',
-          image: '/basic health checkup.jpg'
+        {
+          id: '1',
+          name: 'Modern Health',
+          description: 'Essential screening package for routine health monitoring.',
+          details:
+            'Package includes FBS, Lipid Profile, Creatinine, SGOT, SGPT, BP, and Hemoglobin.',
+          image: '/modern health.jpg',
+          testsList: [
+            'FBS',
+            'Lipid Profile',
+            'Creatinine',
+            'SGOT',
+            'SGPT',
+            'BP',
+            'Hemoglobin',
+          ],
+          originalPrice: '₹740',
+          discountedPrice: '₹600',
         },
-        { 
-          id: '2', 
-          name: 'Comprehensive Health Package', 
-          description: 'Full body health checkup with extensive tests covering all major systems',
-          details: 'Comprehensive package includes all basic tests plus Thyroid Function, Diabetes Profile, Vitamin D, B12, Complete Lipid Profile, ECG, Chest X-ray, and detailed consultation. Complete health assessment covering all major systems.',
-          preparation: 'Fasting for 8-12 hours required. Follow specific test instructions.',
-          duration: '3-4 hours',
-          price: '₹3500 onwards',
-          image: '/comprehensive health check up.jpg'
+        {
+          id: '2',
+          name: 'Modern Health 1',
+          description: 'Expanded screening package with cardiac assessment.',
+          details:
+            'Package includes FBS/RBS, Lipid Profile, Urea/Creatinine, Uric Acid, Liver Function Test, Haemogram, ECG, and BP.',
+          image: '/modern health 1.jpeg',
+          testsList: [
+            'FBS/RBS',
+            'Lipid Profile',
+            'Urea/Creatinine',
+            'Uric Acid',
+            'Liver Function Test',
+            'Haemogram',
+            'ECG',
+            'BP',
+          ],
+          originalPrice: '₹1500',
+          discountedPrice: '₹1300',
         },
-        { 
-          id: '3', 
-          name: 'Executive Health Package', 
-          description: 'Premium health checkup designed for busy professionals with priority service',
-          details: 'Premium package with priority service, includes comprehensive tests, advanced cardiac screening, stress management evaluation, nutritional counseling, and detailed health report with recommendations. Designed for busy professionals.',
-          preparation: 'Fasting for 8-12 hours required.',
-          duration: '4-5 hours with consultation',
-          price: '₹5000 onwards',
-          image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop'
+        {
+          id: '3',
+          name: 'Master Health Checkup',
+          description: 'Comprehensive health package covering key systems.',
+          details:
+            'Package includes FBS, PPBS, HbA1c, Urea, Creatinine, Uric Acid, Lipid Profile, Liver Function Test, Calcium, Electrolytes, TSH, Vitamin D3, Haemogram, Urine Routine, ECG, and BP.',
+          image: '/Master Health Checkup.jpg',
+          testsList: [
+            'FBS',
+            'PPBS',
+            'HbA1c',
+            'Urea',
+            'Creatinine',
+            'Uric Acid',
+            'Lipid Profile',
+            'Liver Function Test',
+            'Calcium',
+            'Electrolytes',
+            'TSH',
+            'Vitamin D3',
+            'Haemogram',
+            'Urine Routine',
+            'ECG',
+            'BP',
+          ],
+          originalPrice: '₹3560',
+          discountedPrice: '₹3100',
         },
-        { 
-          id: '4', 
-          name: 'Women\'s Health Package', 
-          description: 'Comprehensive package tailored for women including gynecological and hormonal tests',
-          details: 'Specialized package for women including hormonal profile, gynecological tests, breast health screening, bone density test, and comprehensive health assessment. Tailored to address women\'s specific health needs.',
-          preparation: 'Fasting for 8-12 hours. Specific instructions for gynecological tests.',
-          duration: '3-4 hours',
-          price: '₹4000 onwards',
-          image: '/womens health.jpg'
+        {
+          id: '4',
+          name: 'Diabetic Profile',
+          description: 'Focused package for diabetic monitoring and risk assessment.',
+          details:
+            'Package includes FBS, PPBS, HbA1c, Microalbumin, Lipid Profile, Renal Function Test, Urine Routine, ECG, and BP.',
+          image: '/daibetic.webp',
+          testsList: [
+            'FBS',
+            'PPBS',
+            'HbA1c',
+            'Microalbumin',
+            'Lipid Profile',
+            'Renal Function Test',
+            'Urine Routine',
+            'ECG',
+            'BP',
+          ],
+          originalPrice: '₹1550',
+          discountedPrice: '₹1300',
         },
-        { 
-          id: '5', 
-          name: 'Senior Citizen Package', 
-          description: 'Specialized health package for elderly with age-appropriate screening tests',
-          details: 'Comprehensive health package designed for seniors including cardiac screening, bone health, vision and hearing tests, cognitive assessment, and age-appropriate cancer screening. Focuses on common age-related health concerns.',
-          preparation: 'Fasting for 8-12 hours. May require multiple visits.',
-          duration: '4-5 hours',
-          price: '₹4500 onwards',
-          image: '/senior citizen.jpg'
+        {
+          id: '5',
+          name: 'Women Health Care',
+          description: 'Women-specific package with hormonal and nutritional screening.',
+          details:
+            'Package includes FBS/RBS, Thyroid Function Test, Vitamin D3, Calcium, Sodium/Potassium, Liver Function Test, Lipid Profile, Renal Function Test, Iron Profile, Haemogram, and BP.',
+          image: '/womens health.jpg',
+          testsList: [
+            'FBS/RBS',
+            'Thyroid Function Test',
+            'Vitamin D3',
+            'Calcium',
+            'Sodium/Potassium',
+            'Liver Function Test',
+            'Lipid Profile',
+            'Renal Function Test',
+            'Iron Profile',
+            'Haemogram',
+            'BP',
+          ],
+          originalPrice: '₹3710',
+          discountedPrice: '₹3300',
         },
-        { 
-          id: '6', 
-          name: 'Pre-Marital Health Package', 
-          description: 'Essential health screening for couples before marriage',
-          details: 'Essential health screening for couples including blood group, Rh factor, complete blood count, infectious disease screening, genetic counseling, and fertility assessment. Ensures healthy start to married life.',
-          preparation: 'Fasting for 8-12 hours required.',
-          duration: '2-3 hours per person',
-          price: '₹2500 onwards per person',
-          image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop'
+        {
+          id: '6',
+          name: 'Cardiac Panel',
+          description: 'Cardiac screening package for heart health assessment.',
+          details:
+            'Package includes Haemogram, Lipid Profile, Troponin-I, ECG, and CPK-MB.',
+          image: '/cardiac panel.jpg',
+          testsList: [
+            'Haemogram',
+            'Lipid Profile',
+            'Troponin-I',
+            'ECG',
+            'CPK-MB',
+          ],
+          originalPrice: '₹2010',
+          discountedPrice: '₹1800',
+        },
+        {
+          id: '7',
+          name: 'Executive Health Checkup',
+          description: 'Extensive screening package with imaging and cardiac review.',
+          details:
+            'Package includes FBS, PPBS, HbA1c, Lipid Profile, Liver Function Test, Renal Function Test, Electrolytes, Uric Acid, Calcium, RA, Thyroid Function Test, Vitamin D3, Haemogram, Urine Routine, ECG, and Chest X-Ray.',
+          image: '/executive health check up.jpg',
+          testsList: [
+            'FBS',
+            'PPBS',
+            'HbA1c',
+            'Lipid Profile',
+            'Liver Function Test',
+            'Renal Function Test',
+            'Electrolytes',
+            'Uric Acid',
+            'Calcium',
+            'RA',
+            'Thyroid Function Test',
+            'Vitamin D3',
+            'Haemogram',
+            'Urine Routine',
+            'ECG',
+            'Chest X-Ray',
+          ],
+          originalPrice: '₹4200',
+          discountedPrice: '₹3800',
+        },
+        {
+          id: '8',
+          name: 'Full Body Checkup',
+          description: 'Complete body evaluation for comprehensive wellness screening.',
+          details:
+            'Package includes FBS, PPBS, HbA1c, Lipid Profile, Liver Function Test, Renal Function Test, Uric Acid, Calcium, Magnesium, Electrolytes, Urine Microalbumin, TFT/PSA, Vitamin D3, RA Titre, Haemogram, Peripheral Smear, BMI, ECG, and X-Ray.',
+          image: '/full body checkup.jpg',
+          testsList: [
+            'FBS',
+            'PPBS',
+            'HbA1c',
+            'Lipid Profile',
+            'Liver Function Test',
+            'Renal Function Test',
+            'Uric Acid',
+            'Calcium',
+            'Magnesium',
+            'Electrolytes',
+            'Urine Microalbumin',
+            'TFT/PSA',
+            'Vitamin D3',
+            'RA Titre',
+            'Haemogram',
+            'Peripheral Smear',
+            'BMI',
+            'ECG',
+            'X-Ray',
+          ],
+          originalPrice: '₹5140',
+          discountedPrice: '₹4600',
         },
       ],
     },
@@ -564,14 +638,18 @@ const Services = () => {
                     <div className="p-6 md:p-8 bg-white">
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                         {service.tests.map((test) => {
+                          const isHealthPackages = service.id === 'health-packages';
+
                           return (
                           <div
                             key={test.id}
-                              className="border-2 border-gray-100 rounded-lg overflow-hidden hover:border-primary-green hover:shadow-lg transition-all duration-300 bg-white group"
+                              className={`border-2 border-gray-100 rounded-lg overflow-hidden hover:border-primary-green hover:shadow-lg transition-all duration-300 bg-white group h-full ${
+                                isHealthPackages ? 'flex flex-col' : ''
+                              }`}
                             >
                               {/* Test Image */}
                               {test.image && (
-                                <div className="w-full h-48 overflow-hidden bg-gray-100">
+                                <div className={`w-full h-48 overflow-hidden bg-gray-100 ${isHealthPackages ? 'flex-shrink-0' : ''}`}>
                                   <img 
                                     src={test.image} 
                                     alt={test.name}
@@ -588,7 +666,7 @@ const Services = () => {
                                 </div>
                               )}
                               
-                              <div className="p-5">
+                              <div className={`p-5 ${isHealthPackages ? 'flex flex-col flex-1' : ''}`}>
                             <div className="flex items-start gap-3 mb-3">
                               <CheckCircle className="h-5 w-5 text-primary-green flex-shrink-0 mt-1" />
                                   <div className="flex-1">
@@ -597,24 +675,51 @@ const Services = () => {
                                 </h3>
                               </div>
                             </div>
-                                <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-3">
+                                <div className={isHealthPackages ? 'flex-1' : ''}>
+                                  <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-3">
                               {test.description}
                             </p>
-                              
-                              {/* Read More Button */}
-                              {test.details && (
+
+                              {test.testsList && (
                                 <div className="mb-4">
-                                  <Link
-                                    to="/test-details"
-                                    state={{ test, service: service.title }}
-                                    onClick={(e) => e.stopPropagation()}
-                                    className="text-primary-green hover:text-primary-green/80 font-semibold text-sm flex items-center gap-1 transition-colors mb-3 inline-flex"
-                                  >
-                                    Read More <ChevronDown className="h-4 w-4" />
-                                  </Link>
+                                  <p className="text-sm md:text-base font-semibold text-text-dark mb-2">
+                                    Tests Included
+                                  </p>
+                                  <ul className="list-disc pl-5 space-y-1 text-sm md:text-base text-gray-700">
+                                    {test.testsList.map((item) => (
+                                      <li key={item}>{item}</li>
+                                    ))}
+                                  </ul>
                                 </div>
                               )}
+                                </div>
                               
+                              <div className={isHealthPackages ? 'mt-auto' : ''}>
+                                {/* Read More Button */}
+                                {test.details && (
+                                  <div className="mb-4">
+                                    <Link
+                                      to="/test-details"
+                                      state={{ test, service: service.title }}
+                                      onClick={(e) => e.stopPropagation()}
+                                      className="text-primary-green hover:text-primary-green/80 font-semibold text-sm flex items-center gap-1 transition-colors mb-3 inline-flex"
+                                    >
+                                      Read More <ChevronDown className="h-4 w-4" />
+                                    </Link>
+                                  </div>
+                                )}
+                                
+                              {test.originalPrice && test.discountedPrice && (
+                                <div className="mt-2 mb-4 flex items-baseline gap-3">
+                                  <span className="text-sm md:text-base text-gray-500 line-through">
+                                    {test.originalPrice}
+                                  </span>
+                                  <span className="text-lg md:text-xl font-bold text-primary-green">
+                                    {test.discountedPrice}
+                                  </span>
+                                </div>
+                              )}
+
                             <button
                               onClick={(e) => {
                                 e.stopPropagation();
@@ -630,6 +735,7 @@ const Services = () => {
                               <Calendar className="h-4 w-4" />
                               Book Test
                             </button>
+                          </div>
                           </div>
                             </div>
                           );

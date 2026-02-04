@@ -122,7 +122,7 @@ const Gallery = () => {
               Gallery
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Take a virtual tour of our modern diagnostic centre and see our state-of-the-art facilities
+              Take a virtual tour of our Modern Diagnostic Centre and see our state-of-the-art facilities
             </p>
           </div>
 
@@ -243,4 +243,6 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
+
 
