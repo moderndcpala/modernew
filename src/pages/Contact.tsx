@@ -104,9 +104,6 @@ const Contact = () => {
                       Daily: 6:30 AM - 6:00 PM
                     </span>
                   </li>
-                  <li className="text-gray-600">
-                    Emergency services available 24/7.
-                  </li>
                 </ul>
                 <div className="mt-6 flex flex-col sm:flex-row gap-3">
                   <Link

@@ -90,13 +90,7 @@ const Footer = () => {
           <div>
             <h3 className="text-sm uppercase tracking-[0.2em] opacity-80 mb-4">Working Hours</h3>
             <ul className="space-y-2 text-sm">
-              <li>Monday - Saturday: 8:00 AM - 8:00 PM</li>
-              <li>Sunday: 9:00 AM - 2:00 PM</li>
-              <li className="mt-4">
-                <p className="opacity-90">
-                  Emergency services available 24/7
-                </p>
-              </li>
+              <li>Daily: 6:30 AM - 6:00 PM</li>
             </ul>
           </div>
         </div>
