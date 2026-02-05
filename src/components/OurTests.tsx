@@ -30,6 +30,7 @@ const OurTests = () => {
 
   // Flatten all tests from all categories and sort by importance
   const allTests = servicesData
+    .filter((category) => category.title !== 'Health Packages')
     .flatMap((category) =>
       category.tests.map((test) => ({
         ...test,
@@ -50,8 +51,8 @@ const OurTests = () => {
 
   // Calculate items per view based on screen size
   const getItemsPerView = () => {
-    if (typeof window === 'undefined') return 4;
-    if (window.innerWidth >= 1024) return 4; // lg and above - show 4 cards
+    if (typeof window === 'undefined') return 1;
+    if (window.innerWidth >= 1024) return 1; // lg and above - single showcase
     if (window.innerWidth >= 768) return 2; // md
     return 1; // mobile
   };
@@ -217,7 +218,7 @@ const OurTests = () => {
       `}</style>
       <section id="our-tests" ref={sectionRef} className="py-16 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl lg:max-w-3xl mx-auto">
+          <div className="max-w-4xl lg:max-w-2xl xl:max-w-3xl mx-auto">
             <div className="section-header text-center mb-12 opacity-0">
               <h2 className="text-3xl md:text-4xl font-bold text-text-dark mb-4">
                 Our Tests
@@ -232,7 +233,7 @@ const OurTests = () => {
               {/* Scrollable Cards Container */}
               <div
                 ref={scrollContainerRef}
-                className="carousel-container flex gap-4 md:gap-6 lg:gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 px-4 md:px-12 lg:px-8"
+                className="carousel-container flex gap-4 md:gap-6 lg:gap-5 overflow-x-hidden snap-x snap-mandatory scroll-smooth pb-4 px-0"
                 style={{
                   scrollSnapType: 'x mandatory',
                   WebkitOverflowScrolling: 'touch',
@@ -244,15 +245,12 @@ const OurTests = () => {
                   return (
                     <div
                       key={`${test.categoryTitle}-${test.id}`}
-                      className="flex-shrink-0 snap-start w-[calc(100vw-64px)] md:w-[calc(50%-12px)] lg:w-[240px]"
-                      style={{
-                        minWidth: 'calc(100vw - 64px)',
-                      }}
+                      className="flex-shrink-0 snap-start w-[calc(100vw-64px)] md:w-[calc(50%-12px)] lg:w-full min-w-[calc(100vw-64px)] md:min-w-[calc(50%-12px)] lg:min-w-full"
                     >
                       <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full w-full flex flex-col">
                         {/* Test Image */}
                         {test.image && (
-                          <div className="w-full h-48 lg:h-56 overflow-hidden bg-gray-100">
+                          <div className="w-full h-56 lg:h-72 overflow-hidden bg-gray-100">
                             <img 
                               src={test.image} 
                               alt={test.title}

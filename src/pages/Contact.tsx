@@ -114,7 +114,7 @@ const Contact = () => {
                     Book Appointment
                   </Link>
                   <a
-                    href="tel:+917306440844"
+                    href="tel:+919846052152"
                     className="inline-flex items-center justify-center rounded-full border border-primary-green px-5 py-3 text-sm font-semibold text-primary-green hover:bg-primary-green hover:text-white transition-all duration-200"
                   >
                     Call Now
@@ -132,5 +132,6 @@ const Contact = () => {
 };
 
 export default Contact;
+
 
 

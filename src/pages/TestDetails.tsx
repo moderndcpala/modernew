@@ -158,7 +158,7 @@ const TestDetails = () => {
                   Book Appointment
                 </Link>
                 <a
-                  href="tel:+917306440844"
+                  href="tel:+919846052152"
                   className="inline-flex items-center justify-center bg-primary-green border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200"
                 >
                   Call Now
@@ -175,3 +175,4 @@ const TestDetails = () => {
 };
 
 export default TestDetails;
+

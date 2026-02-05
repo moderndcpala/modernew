@@ -4,7 +4,6 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Activity, Heart, FileText, Package, ChevronDown, ChevronUp, CheckCircle, Calendar, Cpu, Stethoscope, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import heroBg from '../assets/hero-bg.webp';
 import galleryImage1 from '../assets/Gallery Image 1.png';
 import galleryImage2 from '../assets/Gallery Image 2.webp';
 import galleryImage3 from '../assets/Gallery Image 3.webp';
@@ -546,12 +545,6 @@ const Services = () => {
       {/* Hero Section for Services Page */}
       <section 
         className="relative text-white py-16 md:py-20 overflow-hidden"
-        style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
       >
         <div className="absolute inset-0 bg-primary-green bg-opacity-80"></div>
         <div className="container mx-auto px-4 relative z-10">
@@ -880,7 +873,7 @@ const Services = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+917306440844"
+                href="tel:+919846052152"
                 className="inline-flex items-center justify-center bg-white text-primary-green px-8 py-3 rounded-md font-semibold hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 hover:scale-105"
               >
                 Call Now
@@ -902,3 +895,4 @@ const Services = () => {
 };
 
 export default Services;
+

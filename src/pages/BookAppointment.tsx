@@ -178,7 +178,7 @@ We will contact you shortly to confirm your appointment.
 _This is an automated booking request from our website._`;
 
     // Admin contact details
-    const adminPhoneNumber = '917306440844'; // For WhatsApp URL
+    const adminPhoneNumber = '919846052152'; // For WhatsApp URL
     const adminEmail = 'moderndcpala@gmail.com'; // Admin email
     
     // Encode message for WhatsApp URL
@@ -503,6 +503,7 @@ _This is an automated booking request from our website._`;
 };
 
 export default BookAppointment;
+
 
 
 

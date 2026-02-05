@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Calendar } from 'lucide-react';
-import heroBg1 from '../assets/hero-bg.webp';
-import heroBg2 from '../assets/hero-bg-2.webp';
-import heroBg3 from '../assets/hero-bg-3.webp';
+import heroBg1 from '../assets/hero bg 1.jpg';
+import heroBg2 from '../assets/hero bg 2.jpg';
+import heroBg3 from '../assets/hero bg 3.jpg';
 
 // Hero carousel images
 const heroImages = [
@@ -66,7 +66,7 @@ const Hero = () => {
             className="hero-buttons-appear flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 md:mb-8"
           >
             <a
-              href="tel:+917306440844"
+              href="tel:+919846052152"
               className="inline-flex items-center justify-center bg-primary-green text-white px-4 py-2.5 sm:px-5 sm:py-2.5 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 hover:scale-105 text-sm sm:text-base"
             >
               <Phone className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
@@ -116,3 +116,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

@@ -24,7 +24,7 @@ const About = () => {
               and highly qualified medical professionals.
             </p>
                 <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
-              Our center is equipped with advanced medical imaging and laboratory
+              Our centre is equipped with advanced medical imaging and laboratory
               facilities, ensuring that every patient receives the highest standard of care.
               We prioritize patient comfort, confidentiality, and precision in all our services.
             </p>

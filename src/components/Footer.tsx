@@ -22,8 +22,8 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start">
                 <Phone className="h-5 w-5 mr-3 mt-1 flex-shrink-0" />
-                <a href="tel:+917306440844" className="hover:text-gray-200 transition-colors">
-                  +91 73064 40844
+                <a href="tel:+919846052152" className="hover:text-gray-200 transition-colors">
+                  9846052152
                 </a>
               </li>
               <li className="flex items-start">
@@ -131,6 +131,7 @@ const Footer = () => {
 };
 
 export default Footer;
+
 
 
 
