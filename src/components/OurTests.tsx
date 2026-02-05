@@ -233,7 +233,7 @@ const OurTests = () => {
               {/* Scrollable Cards Container */}
               <div
                 ref={scrollContainerRef}
-                className="carousel-container flex gap-4 md:gap-6 lg:gap-5 overflow-x-hidden snap-x snap-mandatory scroll-smooth pb-4 px-0"
+                className="carousel-container flex gap-8 sm:gap-7 md:gap-16 lg:gap-16 overflow-x-hidden snap-x snap-mandatory scroll-smooth pb-4 px-4 md:px-12 lg:px-8 min-h-[520px] sm:min-h-[560px] md:min-h-0"
                 style={{
                   scrollSnapType: 'x mandatory',
                   WebkitOverflowScrolling: 'touch',
@@ -245,7 +245,7 @@ const OurTests = () => {
                   return (
                     <div
                       key={`${test.categoryTitle}-${test.id}`}
-                      className="flex-shrink-0 snap-start w-[calc(100vw-64px)] md:w-[calc(50%-12px)] lg:w-full min-w-[calc(100vw-64px)] md:min-w-[calc(50%-12px)] lg:min-w-full"
+                      className="flex-shrink-0 snap-start w-full md:w-[calc(50%-32px)] lg:w-full min-w-full md:min-w-[calc(50%-32px)] lg:min-w-full"
                     >
                       <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full w-full flex flex-col">
                         {/* Test Image */}
@@ -267,7 +267,7 @@ const OurTests = () => {
                           </div>
                         )}
                         
-                         <div className="p-4 md:p-5 lg:p-5 flex flex-col flex-grow">
+                        <div className="p-4 md:p-5 lg:p-5 flex flex-col flex-grow text-left">
                           {/* Category Badge */}
                           <div className="flex items-center gap-2 mb-3 lg:mb-3">
                             <div className="w-8 h-8 lg:w-8 lg:h-8 bg-primary-green rounded-lg flex items-center justify-center flex-shrink-0">
@@ -279,7 +279,7 @@ const OurTests = () => {
                           </div>
 
                           {/* Test Title */}
-                          <h3 className="text-xl lg:text-lg font-bold text-text-dark mb-2 lg:mb-3 leading-tight">
+                          <h3 className="text-lg sm:text-xl lg:text-lg font-bold text-text-dark mb-2 lg:mb-3 leading-tight break-words">
                             {test.title}
                           </h3>
 
@@ -289,11 +289,13 @@ const OurTests = () => {
                           </p>
 
                           {/* Price */}
-                          <div className="mb-4 lg:mb-4">
-                            <span className="text-lg lg:text-lg font-bold text-primary-green">
-                              {test.price}
-                            </span>
-                          </div>
+                          {test.price && (
+                            <div className="mb-4 lg:mb-4">
+                              <span className="text-lg lg:text-lg font-bold text-primary-green">
+                                {test.price}
+                              </span>
+                            </div>
+                          )}
 
                           {/* Buttons Container */}
                           <div className="flex flex-col lg:flex-row gap-2.5 lg:gap-2.5 mt-auto">

@@ -53,7 +53,6 @@ const Services = () => {
           description: 'Digital X-ray imaging for bones, chest, and various body parts with instant results',
           details: 'Our state-of-the-art digital X-ray technology provides high-resolution images with minimal radiation exposure. Ideal for diagnosing fractures, infections, arthritis, and lung conditions. Results are available immediately after the scan.',
           preparation: 'No special preparation required. Remove jewelry and metal objects before the scan.',
-          price: '₹400 onwards',
           image: '/xray.jpg'
         },
         { 
@@ -62,7 +61,6 @@ const Services = () => {
           description: 'Safe, non-invasive imaging using sound waves for pregnancy, abdomen, and more',
           details: 'Ultrasound imaging is completely safe with no radiation. Perfect for pregnancy monitoring, abdominal organ evaluation, and vascular studies. Real-time imaging allows immediate assessment and guidance.',
           preparation: 'Fasting may be required for abdominal scans. Drink water for pelvic/obstetric scans.',
-          price: '₹800 onwards',
           image: '/ultrasound.png'
         },
         { 
@@ -71,7 +69,6 @@ const Services = () => {
           description: 'Breast imaging for early detection of breast cancer and abnormalities',
           details: 'Digital mammography with advanced imaging technology for early breast cancer detection. Our low-dose digital mammography provides clear images with minimal discomfort. Essential for women over 40 and those with family history.',
           preparation: 'Avoid deodorant, lotions, or powders on the day of examination.',
-          price: '₹1500 onwards',
           image: '/mammography.jpg'
         },
         { 
@@ -80,7 +77,6 @@ const Services = () => {
           description: 'Bone density testing to diagnose osteoporosis and assess fracture risk',
           details: 'DEXA scan measures bone mineral density to diagnose osteoporosis and assess fracture risk. Quick, painless, and uses minimal radiation. Recommended for postmenopausal women and those at risk of bone loss.',
           preparation: 'No special preparation. Avoid calcium supplements 24 hours before the test.',
-          price: '₹1200 onwards',
           image: '/bone densiometery.jpg'
         },
       ],
@@ -98,7 +94,6 @@ const Services = () => {
           description: 'Digestive health assessment measuring stool acidity or alkalinity.',
           details: 'Stool pH Test helps assess digestive health by measuring stool acidity or alkalinity. It can indicate malabsorption, bacterial overgrowth, or dietary imbalances that affect gut function.',
           preparation: 'No special preparation required. Follow collection instructions provided by the lab.',
-          price: '₹200 onwards',
           image: '/stool ph test.png'
         },
         { 
@@ -107,7 +102,6 @@ const Services = () => {
           description: 'Complete blood analysis including red cells, white cells, and platelets',
           details: 'CBC is one of the most common blood tests that evaluates your overall health. It measures red blood cells, white blood cells, hemoglobin, hematocrit, and platelets. Essential for detecting anemia, infections, bleeding disorders, and various other conditions.',
           preparation: 'Fasting not required. Can be done at any time.',
-          price: '₹300 onwards',
           image: '/complete-blood-count.jpg'
         },
         { 
@@ -116,7 +110,6 @@ const Services = () => {
           description: 'Comprehensive metabolic panel to assess organ function and overall health',
           details: 'Comprehensive metabolic panel evaluates kidney function, liver function, electrolyte balance, blood sugar, and protein levels. Provides a complete picture of your metabolic health and organ function.',
           preparation: 'Fasting for 8-12 hours required. Only water allowed.',
-          price: '₹800 onwards',
           image: '/blood chemistry panel.webp'
         },
         { 
@@ -125,7 +118,6 @@ const Services = () => {
           description: 'Cholesterol and triglyceride levels to assess cardiovascular health',
           details: 'Measures total cholesterol, LDL (bad cholesterol), HDL (good cholesterol), and triglycerides. Essential for assessing cardiovascular risk and monitoring heart health. Recommended annually for adults over 20.',
           preparation: 'Fasting for 12 hours required. Avoid fatty foods the day before.',
-          price: '₹500 onwards',
           image: '/lipid profile.jpg'
         },
         { 
@@ -134,7 +126,6 @@ const Services = () => {
           description: 'TSH, T3, T4 levels to evaluate thyroid gland function',
           details: 'Measures Thyroid Stimulating Hormone (TSH), T3, and T4 levels to evaluate thyroid function. Essential for diagnosing hypothyroidism, hyperthyroidism, and monitoring thyroid treatment.',
           preparation: 'Fasting not required. Can be done at any time.',
-          price: '₹600 onwards',
           image: '/thyroid function.jpg'
         },
         { 
@@ -143,7 +134,6 @@ const Services = () => {
           description: 'Comprehensive panel to assess liver health and detect liver diseases',
           details: 'Comprehensive panel including ALT, AST, ALP, bilirubin, and protein levels. Evaluates liver health, detects liver damage, inflammation, and monitors treatment of liver diseases.',
           preparation: 'Fasting for 8-12 hours recommended. Avoid alcohol 24 hours before.',
-          price: '₹600 onwards',
           image: '/Liver-function-test.png'
         },
         { 
@@ -152,7 +142,6 @@ const Services = () => {
           description: 'Renal function panel including creatinine, BUN, and electrolytes',
           details: 'Measures creatinine, Blood Urea Nitrogen (BUN), and electrolyte levels to assess kidney function. Essential for detecting kidney disease, monitoring kidney health, and evaluating treatment effectiveness.',
           preparation: 'Fasting not required. Stay well hydrated.',
-          price: '₹550 onwards',
           image: '/kidney function.webp'
         },
         { 
@@ -161,7 +150,6 @@ const Services = () => {
           description: 'Comprehensive hormone testing for various endocrine disorders',
           details: 'Comprehensive hormone panel including cortisol, growth hormone, sex hormones, and other endocrine markers. Essential for diagnosing hormonal imbalances, fertility issues, and endocrine disorders.',
           preparation: 'Specific preparation depends on the hormone being tested. Follow doctor\'s instructions.',
-          price: '₹1000 onwards',
           image: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&h=600&fit=crop'
         },
       ],
@@ -179,7 +167,6 @@ const Services = () => {
           description: 'Recording of electrical activity of the heart to detect heart rhythm abnormalities',
           details: 'ECG records the electrical signals of your heart to detect irregular heartbeats, heart attacks, and other cardiac conditions. Quick, painless, and non-invasive test that takes just a few minutes.',
           preparation: 'No special preparation. Avoid caffeine and smoking before the test.',
-          price: '₹300 onwards',
           image: '/ecg.webp'
         },
         { 
@@ -188,7 +175,6 @@ const Services = () => {
           description: '24-48 hour continuous ECG monitoring for intermittent heart rhythm issues',
           details: 'Holter monitor is a portable device that continuously records your heart\'s electrical activity for 24-48 hours. Essential for detecting irregular heartbeats that occur intermittently and may not show up during a regular ECG.',
           preparation: 'No special preparation. Device will be attached and you can go about normal activities.',
-          price: '₹1500 onwards',
           image: '/holter monitoring.webp'
         },
         { 
@@ -197,7 +183,6 @@ const Services = () => {
           description: 'Blood tests including Troponin, CK-MB for heart attack diagnosis',
           details: 'Cardiac marker tests measure specific proteins in the blood that indicate heart muscle damage. Essential for diagnosing heart attacks, evaluating chest pain, and monitoring heart conditions. Includes Troponin, CK-MB, and other markers.',
           preparation: 'No special preparation. Can be done urgently if heart attack is suspected.',
-          price: '₹800 onwards',
           image: '/cardiac markers.png'
         },
       ],

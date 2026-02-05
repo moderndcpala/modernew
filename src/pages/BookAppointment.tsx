@@ -444,7 +444,11 @@ _This is an automated booking request from our website._`;
                       className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-transparent appearance-none bg-white"
                     >
                       <option value="">Select preferred time</option>
-                      <optgroup label="Morning (8:00 AM - 12:00 PM)">
+                      <optgroup label="Morning (6:00 AM - 12:00 PM)">
+                        <option value="06:00">6:00 AM</option>
+                        <option value="06:30">6:30 AM</option>
+                        <option value="07:00">7:00 AM</option>
+                        <option value="07:30">7:30 AM</option>
                         <option value="08:00">8:00 AM</option>
                         <option value="08:30">8:30 AM</option>
                         <option value="09:00">9:00 AM</option>
@@ -454,7 +458,7 @@ _This is an automated booking request from our website._`;
                         <option value="11:00">11:00 AM</option>
                         <option value="11:30">11:30 AM</option>
                       </optgroup>
-                      <optgroup label="Afternoon (12:00 PM - 4:00 PM)">
+                      <optgroup label="Afternoon (12:00 PM - 6:00 PM)">
                         <option value="12:00">12:00 PM</option>
                         <option value="12:30">12:30 PM</option>
                         <option value="13:00">1:00 PM</option>
@@ -463,23 +467,17 @@ _This is an automated booking request from our website._`;
                         <option value="14:30">2:30 PM</option>
                         <option value="15:00">3:00 PM</option>
                         <option value="15:30">3:30 PM</option>
-                      </optgroup>
-                      <optgroup label="Evening (4:00 PM - 8:00 PM)">
                         <option value="16:00">4:00 PM</option>
                         <option value="16:30">4:30 PM</option>
                         <option value="17:00">5:00 PM</option>
                         <option value="17:30">5:30 PM</option>
                         <option value="18:00">6:00 PM</option>
-                        <option value="18:30">6:30 PM</option>
-                        <option value="19:00">7:00 PM</option>
-                        <option value="19:30">7:30 PM</option>
-                        <option value="20:00">8:00 PM</option>
                       </optgroup>
                     </select>
                     <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
                   </div>
                   <p className="text-xs text-gray-500 mt-1">
-                    Working Hours: Mon-Sat 8:00 AM - 8:00 PM | Sun 9:00 AM - 2:00 PM
+                    Working Hours: 6:00 AM - 6:00 PM
                   </p>
                 </div>
               </div>
