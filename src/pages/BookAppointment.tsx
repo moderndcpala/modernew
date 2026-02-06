@@ -178,16 +178,21 @@ We will contact you shortly to confirm your appointment.
 _This is an automated booking request from our website._`;
 
     // Admin contact details
-    const adminPhoneNumber = '919846052152'; // For WhatsApp URL
+    const adminPhoneNumbers = ['919846052152', '919495508847']; // For WhatsApp URLs
     const adminEmail = 'moderndcpala@gmail.com'; // Admin email
     
     // Encode message for WhatsApp URL
     const encodedMessage = encodeURIComponent(bookingMessage);
-    const whatsappUrl = `https://wa.me/${adminPhoneNumber}?text=${encodedMessage}`;
+    const whatsappUrls = adminPhoneNumbers.map(
+      (phoneNumber) => `https://wa.me/${phoneNumber}?text=${encodedMessage}`
+    );
     
     // Immediately open WhatsApp with pre-filled message - PRIMARY ACTION
     // This directly connects the customer to admin via WhatsApp
-    window.open(whatsappUrl, '_blank');
+    whatsappUrls.forEach((url, index) => {
+      // Stagger to reduce popup blocking in some browsers
+      setTimeout(() => window.open(url, '_blank'), index * 400);
+    });
     
     // Show instruction message
     alert(
