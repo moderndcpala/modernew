@@ -155,10 +155,10 @@ const Services = () => {
         },
         { 
           id: '2', 
-          name: 'Cardiac Markers', 
-          description: 'Blood tests including Troponin, CK-MB for heart attack diagnosis',
-          details: 'Cardiac marker tests measure specific proteins in the blood that indicate heart muscle damage. Essential for diagnosing heart attacks, evaluating chest pain, and monitoring heart conditions. Includes Troponin, CK-MB, and other markers.',
-          preparation: 'No special preparation. Can be done urgently if heart attack is suspected.',
+          name: 'Evaluation with Cardiac Blood Tests', 
+          description: 'Comprehensive evaluation using cardiac blood tests to assess heart health',
+          details: 'A focused assessment that uses cardiac blood tests to evaluate heart-related risk or symptoms. Helps guide further care and treatment planning.',
+          preparation: 'No special preparation. Fasting may be advised if combined with other tests.',
           image: '/cardiac markers.png'
         },
       ],

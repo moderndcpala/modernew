@@ -22,7 +22,7 @@ const serviceTestsMap: { [key: string]: string[] } = {
   ],
   'Cardiology': [
     'ECG (Electrocardiogram)',
-    'Cardiac Markers',
+    'Evaluation with Cardiac Blood Tests',
   ],
   'Health Packages': [
     'Modern Health',
