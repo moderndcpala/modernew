@@ -43,7 +43,7 @@ export const servicesData: ServiceCategory[] = [
         details: 'CBC is one of the most common blood tests that evaluates your overall health. It measures red blood cells, white blood cells, hemoglobin, hematocrit, and platelets. Essential for detecting anemia, infections, bleeding disorders, and various other conditions.',
         preparation: 'Fasting not required. Can be done at any time.',
         category: 'Pathology',
-        image: '/complete-blood-count.jpg',
+        image: '/premedical.jpg',
       },
       {
         id: 'blood-chemistry-panel',
@@ -130,7 +130,7 @@ export const servicesData: ServiceCategory[] = [
   {
     id: 'cardiology',
     title: 'Cardiology',
-    description: 'Complete cardiac care with ECG and advanced heart monitoring performed by experienced cardiologists.',
+    description: 'Complete cardiac care with ECG and blood tests.',
     icon: 'Heart',
     tests: [
       {
@@ -361,6 +361,23 @@ export const servicesData: ServiceCategory[] = [
         price: '₹4600',
         category: 'Health Packages',
         image: '/full body checkup.jpg',
+      },
+    ],
+  },
+  {
+    id: 'pre-medical-checkup',
+    title: 'Pre Medical Checkup for Health Insurance',
+    description: 'Pre-medical checkup for health insurance with required clinical and lab evaluation.',
+    icon: 'Stethoscope',
+    tests: [
+      {
+        id: 'pre-medical-checkup',
+        title: 'Pre Medical Checkup for Health Insurance',
+        description: 'Health insurance pre-medical evaluation with essential clinical and lab checks.',
+        details: 'Includes basic clinical assessment and necessary lab investigations as required by insurance providers.',
+        preparation: 'Fasting may be advised if blood tests are included.',
+        category: 'Pre Medical Checkup for Health Insurance',
+        image: '/complete-blood-count.jpg',
       },
     ],
   },

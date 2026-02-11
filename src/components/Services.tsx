@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Activity, Heart, FileText, Package } from 'lucide-react';
+import { Activity, Heart, FileText, Package, Stethoscope } from 'lucide-react';
 
 const Services = () => {
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
@@ -21,12 +21,17 @@ const Services = () => {
     {
       icon: Heart,
       title: 'Cardiology',
-      description: 'Complete cardiac care with ECG and advanced heart monitoring performed by experienced cardiologists.',
+      description: 'Complete cardiac care with ECG and blood tests.',
     },
     {
       icon: Package,
       title: 'Health Packages',
       description: 'Customized health checkup packages designed for individuals and families at competitive prices.',
+    },
+    {
+      icon: Stethoscope,
+      title: 'Pre Medical Checkup for Health Insurance',
+      description: 'Pre-medical checkup for health insurance with required clinical and lab evaluation.',
     },
   ];
 
@@ -160,6 +165,7 @@ const Services = () => {
             const IconComponent = service.icon;
               const isVisible = visibleItems.has(index);
               const delay = index * 100; // Stagger delay in milliseconds
+              const isLast = index === services.length - 1;
 
             return (
               <div
@@ -169,7 +175,7 @@ const Services = () => {
                   }}
                   className={`fade-in-up-delay flex flex-col items-center text-center p-6 hover:shadow-lg transition-all duration-300 ${
                     isVisible ? 'visible' : ''
-                  }`}
+                  } ${isLast ? 'col-span-2 lg:col-start-2 lg:col-span-2 mx-auto max-w-sm w-full' : ''}`}
                   style={{
                     transitionDelay: isVisible ? `${delay}ms` : '0ms',
                   }}

@@ -34,6 +34,9 @@ const serviceTestsMap: { [key: string]: string[] } = {
     'Executive Health Checkup',
     'Full Body Checkup',
   ],
+  'Pre Medical Checkup for Health Insurance': [
+    'Pre Medical Checkup for Health Insurance',
+  ],
 };
 
 const BookAppointment = () => {
@@ -53,6 +56,7 @@ const BookAppointment = () => {
     'Pathology',
     'Cardiology',
     'Health Packages',
+    'Pre Medical Checkup for Health Insurance',
   ];
 
   // Get available tests based on selected service

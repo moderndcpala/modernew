@@ -70,7 +70,7 @@ const Services = () => {
       title: 'Pathology',
       description: 'Comprehensive laboratory testing with accurate results and quick turnaround times',
       icon: FileText,
-      image: galleryImage2,
+      image: '/premedical.jpg',
       tests: [
         { 
           id: 'stool-ph-test', 
@@ -141,7 +141,7 @@ const Services = () => {
     {
       id: 'cardiology',
       title: 'Cardiology',
-      description: 'Complete cardiac care with ECG and advanced heart monitoring by experienced cardiologists',
+      description: 'Complete cardiac care with ECG and blood tests',
       icon: Heart,
       image: galleryImage3,
       tests: [
@@ -356,6 +356,24 @@ const Services = () => {
           ],
           originalPrice: '₹5140',
           discountedPrice: '₹4600',
+        },
+      ],
+    },
+    {
+      id: 'pre-medical-checkup',
+      title: 'Pre Medical Checkup for Health Insurance',
+      description: 'Pre-medical checkup for health insurance with required clinical and lab evaluation',
+      icon: Stethoscope,
+      image: galleryImage2,
+      tests: [
+        {
+          id: '1',
+          name: 'Pre Medical Checkup for Health Insurance',
+          description: 'Health insurance pre-medical evaluation with essential clinical and lab checks',
+          details:
+            'Includes basic clinical assessment and necessary lab investigations as required by insurance providers.',
+          preparation: 'Fasting may be advised if blood tests are included.',
+          image: '/premedical.jpg',
         },
       ],
     },
