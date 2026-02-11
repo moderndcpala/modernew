@@ -9,8 +9,6 @@ const serviceTestsMap: { [key: string]: string[] } = {
   'Radiology': [
     'X-Ray',
     'Ultrasound',
-    'Mammography',
-    'Bone Densitometry',
   ],
   'Pathology': [
     'Complete Blood Count (CBC)',
@@ -24,7 +22,6 @@ const serviceTestsMap: { [key: string]: string[] } = {
   ],
   'Cardiology': [
     'ECG (Electrocardiogram)',
-    'Holter Monitoring',
     'Cardiac Markers',
   ],
   'Health Packages': [

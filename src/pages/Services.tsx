@@ -63,22 +63,6 @@ const Services = () => {
           preparation: 'Fasting may be required for abdominal scans. Drink water for pelvic/obstetric scans.',
           image: '/ultrasound.png'
         },
-        { 
-          id: '3', 
-          name: 'Mammography', 
-          description: 'Breast imaging for early detection of breast cancer and abnormalities',
-          details: 'Digital mammography with advanced imaging technology for early breast cancer detection. Our low-dose digital mammography provides clear images with minimal discomfort. Essential for women over 40 and those with family history.',
-          preparation: 'Avoid deodorant, lotions, or powders on the day of examination.',
-          image: '/mammography.jpg'
-        },
-        { 
-          id: '4', 
-          name: 'Bone Densitometry', 
-          description: 'Bone density testing to diagnose osteoporosis and assess fracture risk',
-          details: 'DEXA scan measures bone mineral density to diagnose osteoporosis and assess fracture risk. Quick, painless, and uses minimal radiation. Recommended for postmenopausal women and those at risk of bone loss.',
-          preparation: 'No special preparation. Avoid calcium supplements 24 hours before the test.',
-          image: '/bone densiometery.jpg'
-        },
       ],
     },
     {
@@ -171,14 +155,6 @@ const Services = () => {
         },
         { 
           id: '2', 
-          name: 'Holter Monitoring', 
-          description: '24-48 hour continuous ECG monitoring for intermittent heart rhythm issues',
-          details: 'Holter monitor is a portable device that continuously records your heart\'s electrical activity for 24-48 hours. Essential for detecting irregular heartbeats that occur intermittently and may not show up during a regular ECG.',
-          preparation: 'No special preparation. Device will be attached and you can go about normal activities.',
-          image: '/holter monitoring.webp'
-        },
-        { 
-          id: '3', 
           name: 'Cardiac Markers', 
           description: 'Blood tests including Troponin, CK-MB for heart attack diagnosis',
           details: 'Cardiac marker tests measure specific proteins in the blood that indicate heart muscle damage. Essential for diagnosing heart attacks, evaluating chest pain, and monitoring heart conditions. Includes Troponin, CK-MB, and other markers.',

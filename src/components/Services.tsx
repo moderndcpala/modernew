@@ -11,7 +11,7 @@ const Services = () => {
     {
       icon: Activity,
       title: 'Radiology',
-      description: 'Advanced imaging services including X-ray, ultrasound, mammography, and bone densitometry.',
+      description: 'Advanced imaging services including X-ray and ultrasound.',
     },
     {
       icon: FileText,

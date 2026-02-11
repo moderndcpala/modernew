@@ -104,7 +104,7 @@ export const servicesData: ServiceCategory[] = [
   {
     id: 'radiology',
     title: 'Radiology',
-    description: 'Advanced imaging services including X-ray, ultrasound, mammography, and bone densitometry.',
+    description: 'Advanced imaging services including X-ray and ultrasound.',
     icon: 'Activity',
     tests: [
       {
@@ -125,24 +125,6 @@ export const servicesData: ServiceCategory[] = [
         category: 'Radiology',
         image: '/ultrasound.png',
       },
-      {
-        id: 'mammography',
-        title: 'Mammography',
-        description: 'Breast imaging for early detection of breast cancer and abnormalities.',
-        details: 'Digital mammography with advanced imaging technology for early breast cancer detection. Our low-dose digital mammography provides clear images with minimal discomfort. Essential for women over 40 and those with family history.',
-        preparation: 'Avoid deodorant, lotions, or powders on the day of examination.',
-        category: 'Radiology',
-        image: '/mammography.jpg',
-      },
-      {
-        id: 'bone-densitometry',
-        title: 'Bone Densitometry',
-        description: 'Bone density testing to diagnose osteoporosis and assess fracture risk.',
-        details: 'DEXA scan measures bone mineral density to diagnose osteoporosis and assess fracture risk. Quick, painless, and uses minimal radiation. Recommended for postmenopausal women and those at risk of bone loss.',
-        preparation: 'No special preparation. Avoid calcium supplements 24 hours before the test.',
-        category: 'Radiology',
-        image: '/bone densiometery.jpg',
-      },
     ],
   },
   {
@@ -159,15 +141,6 @@ export const servicesData: ServiceCategory[] = [
         preparation: 'No special preparation. Avoid caffeine and smoking before the test.',
         category: 'Cardiology',
         image: '/ecg.webp',
-      },
-      {
-        id: 'holter-monitoring',
-        title: 'Holter Monitoring',
-        description: '24-48 hour continuous ECG monitoring for intermittent heart rhythm issues.',
-        details: 'Holter monitor is a portable device that continuously records your heart\'s electrical activity for 24-48 hours. Essential for detecting irregular heartbeats that occur intermittently and may not show up during a regular ECG.',
-        preparation: 'No special preparation. Device will be attached and you can go about normal activities.',
-        category: 'Cardiology',
-        image: '/holter monitoring.webp',
       },
       {
         id: 'cardiac-markers',
