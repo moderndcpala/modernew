@@ -43,7 +43,7 @@ const Services = () => {
     {
       id: 'radiology',
       title: 'Radiology',
-      description: 'Advanced imaging services with cutting-edge technology for accurate diagnoses',
+      description: 'Advanced imaging services for accurate diagnoses',
       icon: Activity,
       image: galleryImage1,
       tests: [
