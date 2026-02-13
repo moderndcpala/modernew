@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
@@ -10,9 +10,13 @@ import OurTests from '../components/OurTests';
 import Statistics from '../components/Statistics';
 import Footer from '../components/Footer';
 import { servicesData } from '../data/services';
+import { Play } from 'lucide-react';
+import homeVideo from '../assets/WhatsApp Video 2026-02-13 at 4.26.59 PM.mp4';
 
 const Home = () => {
   const [welcomeIndex, setWelcomeIndex] = useState(0);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const welcomeImages = ['/welcome.webp', '/welcome%202.webp', '/welcome%203.webp'];
   const healthPackages = servicesData.find((category) => category.id === 'health-packages');
 
@@ -58,6 +62,59 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Video Section */}
+      <section className="py-12 md:py-16 bg-beige-bg">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-text-dark mb-4">
+                Watch Our Centre
+              </h2>
+              <p className="text-base md:text-lg text-gray-600">
+                Take a look at Modern Diagnostic Centre Pala
+              </p>
+            </div>
+            <div
+              className="relative rounded-xl overflow-hidden shadow-xl bg-black cursor-pointer group"
+              onClick={() => {
+                if (!isVideoPlaying && videoRef.current) {
+                  videoRef.current.play();
+                }
+              }}
+            >
+              <video
+                ref={videoRef}
+                src={homeVideo}
+                controls
+                preload="metadata"
+                className="w-full aspect-video object-contain"
+                onPlay={() => setIsVideoPlaying(true)}
+                onPause={() => setIsVideoPlaying(false)}
+                onClick={(e) => e.stopPropagation()}
+              >
+                Your browser does not support the video tag.
+              </video>
+              {!isVideoPlaying && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <Play className="h-10 w-10 md:h-12 md:w-12 text-primary-green ml-1" fill="currentColor" />
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="mt-6 text-center">
+              <Link
+                to="/gallery"
+                className="inline-flex items-center justify-center rounded-full border border-primary-green text-primary-green px-6 py-3 text-sm font-semibold hover:bg-primary-green hover:text-white transition-all duration-200"
+              >
+                View More in Gallery
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <About />
       <Services />
       <section className="py-12 md:py-16 bg-white">

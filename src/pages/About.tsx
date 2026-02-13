@@ -159,15 +159,10 @@ const About = () => {
                   </h2>
                   <div className="space-y-4 md:space-y-5 text-base md:text-lg text-gray-700 leading-relaxed">
                     <p>
-                      Modern Diagnostic Centre - Pala has been a trusted name in healthcare diagnostics 
-                      for over 25 years. Since our establishment in 1999, we have been committed to 
-                      providing accurate, reliable, and timely diagnostic services to the community.
+                      Established in 2001, Modern Diagnostic Centre Pala was founded with the vision of delivering reliable, accurate, and timely diagnostic services to the community. The centre was started through the dedicated efforts of Dr. Babu Chacko , Saji John & Rini Saji John, whose shared commitment to quality healthcare laid the foundation for its growth.
                     </p>
                     <p>
-                      Our centre is equipped with advanced medical imaging and laboratory facilities, 
-                      ensuring that every patient receives the highest standard of care. We understand 
-                      that accurate diagnosis is the foundation of effective treatment, which is why we 
-                      invest in the latest technology and maintain the highest quality standards.
+                      From its inception, the centre aimed to combine advanced diagnostic technology with professional expertise, ensuring patients received dependable results and compassionate service. Over the years, Modern Diagnostic Centre has continued to expand its capabilities, maintaining high standards in laboratory and patient care while earning the trust of the Pala community.
                     </p>
                     <p>
                       Over the years, we have built a reputation for excellence, integrity, and 
@@ -433,12 +428,9 @@ const About = () => {
         <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-r from-primary-green to-primary-green">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center text-white">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 leading-tight tracking-tight">
                 Experience Quality Healthcare
               </h2>
-              <p className="text-base md:text-lg lg:text-xl mb-6 md:mb-8 opacity-90 leading-relaxed">
-                Trust us for all your diagnostic needs and experience the difference that quality healthcare makes.
-              </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <a
                   href="/book-appointment"

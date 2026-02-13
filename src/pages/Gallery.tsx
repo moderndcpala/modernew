@@ -11,6 +11,7 @@ import galleryImage5 from '../assets/Gallery Image 5.webp';
 import galleryImage6 from '../assets/Gallery Image 6.webp';
 import galleryImage7 from '../assets/Gallery Image 7.webp';
 import galleryImage8 from '../assets/Gallery Image 8.webp';
+import video1 from '../assets/WhatsApp Video 2026-02-13 at 4.26.59 PM.mp4';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -18,52 +19,78 @@ const Gallery = () => {
   const galleryImages = [
     {
       id: 1,
+      title: 'Inauguration',
+      description: 'Inauguration',
+      image: '/welcome.webp',
+    },
+    {
+      id: 2,
+      title: 'Inauguration',
+      description: 'Inauguration',
+      image: '/welcome%202.webp',
+    },
+    {
+      id: 3,
+      title: 'Inauguration',
+      description: 'Inauguration',
+      image: '/welcome%203.webp',
+    },
+    {
+      id: 4,
       title: 'Reception Area',
       description: 'Our modern reception area with comfortable seating',
       image: galleryImage1,
     },
     {
-      id: 2,
+      id: 5,
       title: 'Main Reception',
       description: 'Spacious reception desk with professional service',
       image: galleryImage2,
     },
     {
-      id: 3,
+      id: 6,
       title: 'Waiting Area',
       description: 'Comfortable waiting space with modern design',
       image: galleryImage3,
     },
     {
-      id: 4,
+      id: 7,
       title: 'Sample Collection',
       description: 'Dedicated sample collection counter',
       image: galleryImage4,
     },
     {
-      id: 5,
+      id: 8,
       title: 'Reception Desk',
       description: 'Our welcoming reception area',
       image: galleryImage5,
     },
     {
-      id: 6,
+      id: 9,
       title: 'Waiting Lounge',
       description: 'Modern waiting area with comfortable seating',
       image: galleryImage6,
     },
     {
-      id: 7,
+      id: 10,
       title: 'Facility Interior',
       description: 'Bright and welcoming interior spaces',
       image: galleryImage7,
     },
     {
-      id: 8,
+      id: 11,
       title: 'Reception View',
       description: 'Professional reception area view',
       image: galleryImage8,
     },
+  ];
+
+  const galleryVideos = [
+    { id: 1, title: 'Facility Tour', description: 'A walkthrough of our diagnostic centre', src: video1 },
+    { id: 2, title: 'Our Team', src: '/videos/video2.mp4' },
+    { id: 3, title: 'Laboratory', src: '/videos/video3.mp4' },
+    { id: 4, title: 'Patient Care', src: '/videos/video4.mp4' },
+    { id: 5, title: 'Welcome to MDC Pala', src: '/videos/video5.mp4' },
   ];
 
   // Keyboard navigation and body scroll lock
@@ -220,6 +247,39 @@ const Gallery = () => {
               </div>
             </div>
           )}
+
+          {/* Videos Section */}
+          <section className="mt-16">
+            <h2 className="text-2xl md:text-3xl font-bold text-text-dark mb-2 text-center">
+              Videos
+            </h2>
+            <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto">
+              Watch our facility tours and learn more about Modern Diagnostic Centre
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {galleryVideos.map((video) => (
+                <div
+                  key={video.id}
+                  className="rounded-lg shadow-md overflow-hidden bg-gray-100 hover:shadow-xl transition-shadow duration-300"
+                >
+                  <div className="relative aspect-video bg-black">
+                    <video
+                      src={video.src}
+                      controls
+                      preload="metadata"
+                      className="w-full h-full object-contain"
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <div className="p-4 bg-white">
+                    <h3 className="text-lg font-semibold text-text-dark">{video.title}</h3>
+                    {video.description && <p className="text-sm text-gray-600 mt-2">{video.description}</p>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
 
           {/* Additional Info */}
           <div className="mt-12 text-center">

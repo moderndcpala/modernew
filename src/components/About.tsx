@@ -18,20 +18,11 @@ const About = () => {
             <div className="order-1">
               <div className="space-y-5 md:space-y-6">
                 <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
-                  <span className="font-semibold text-text-dark">Modern Diagnostic Centre - Pala</span> has been serving the community with excellence
-                  and dedication for over <span className="font-semibold text-text-dark">25 years</span>. We are committed to providing accurate,
-              reliable, and timely diagnostic services using state-of-the-art equipment
-              and highly qualified medical professionals.
-            </p>
+                  Established in 2001, Modern Diagnostic Centre Pala was founded with the vision of delivering reliable, accurate, and timely diagnostic services to the community. The centre was started through the dedicated efforts of Dr. Babu Chacko , Saji John & Rini Saji John, whose shared commitment to quality healthcare laid the foundation for its growth.
+                </p>
                 <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
-              Our centre is equipped with advanced medical imaging and laboratory
-              facilities, ensuring that every patient receives the highest standard of care.
-              We prioritize patient comfort, confidentiality, and precision in all our services.
-            </p>
-                <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
-              Trust us for all your diagnostic needs, and experience the difference that
-              quality healthcare makes.
-            </p>
+                  From its inception, the centre aimed to combine advanced diagnostic technology with professional expertise, ensuring patients received dependable results and compassionate service. Over the years, Modern Diagnostic Centre has continued to expand its capabilities, maintaining high standards in laboratory and patient care while earning the trust of the Pala community.
+                </p>
               </div>
           </div>
 
