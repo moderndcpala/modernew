@@ -12,6 +12,10 @@ import galleryImage6 from '../assets/Gallery Image 6.webp';
 import galleryImage7 from '../assets/Gallery Image 7.webp';
 import galleryImage8 from '../assets/Gallery Image 8.webp';
 import video1 from '../assets/WhatsApp Video 2026-02-13 at 4.26.59 PM.mp4';
+import video2 from '../assets/C3052_3_1.mp4';
+import video3 from '../assets/C3052_3_2.mp4';
+import video4 from '../assets/C3052_3_3.mp4';
+import video5 from '../assets/C3052_3_4.mp4';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -87,10 +91,10 @@ const Gallery = () => {
 
   const galleryVideos = [
     { id: 1, title: 'Facility Tour', description: 'A walkthrough of our diagnostic centre', src: video1 },
-    { id: 2, title: 'Our Team', src: '/videos/video2.mp4' },
-    { id: 3, title: 'Laboratory', src: '/videos/video3.mp4' },
-    { id: 4, title: 'Patient Care', src: '/videos/video4.mp4' },
-    { id: 5, title: 'Welcome to MDC Pala', src: '/videos/video5.mp4' },
+    { id: 2, title: 'Our Team', src: video2 },
+    { id: 3, title: 'Laboratory', src: video3 },
+    { id: 4, title: 'Patient Care', src: video4 },
+    { id: 5, title: 'Welcome to MDC Pala', src: video5 },
   ];
 
   // Keyboard navigation and body scroll lock
