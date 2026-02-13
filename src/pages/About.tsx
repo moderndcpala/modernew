@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Award, Users, Heart, TrendingUp, CheckCircle } from 'lucide-react';
@@ -6,6 +7,10 @@ import yearsImage from '../assets/25years.png';
 import galleryImage1 from '../assets/Gallery Image 1.png';
 import galleryImage2 from '../assets/Gallery Image 2.webp';
 import galleryImage3 from '../assets/Gallery Image 3.webp';
+import aboutVideo2 from '../assets/C3052_3_1.mp4';
+import aboutVideo3 from '../assets/C3052_3_2.mp4';
+import aboutVideo4 from '../assets/C3052_3_3.mp4';
+import aboutVideo5 from '../assets/C3052_3_4.mp4';
 
 const About = () => {
   const [visibleValues, setVisibleValues] = useState<Set<number>>(new Set());
@@ -151,9 +156,9 @@ const About = () => {
         <section className="py-12 md:py-16 lg:py-20 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center lg:items-start mb-12 md:mb-16">
-                {/* Text Content */}
-                <div className="order-2 lg:order-1">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start mb-12 md:mb-16">
+                {/* Text Content - First on mobile, left on desktop */}
+                <div className="order-1">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark mb-4 md:mb-6 leading-tight tracking-tight">
                     Our Story
                   </h2>
@@ -181,18 +186,41 @@ const About = () => {
                   </div>
                 </div>
 
-                {/* About Page Image */}
-                <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-                  <div className="flex flex-col gap-6 items-center lg:items-end">
+                {/* About Page Image & Videos - Second on mobile (after About text), right on desktop */}
+                <div className="order-2 flex flex-col gap-6 lg:gap-8">
+                  <div className="flex justify-center lg:justify-end">
                     <img 
                       src="/about us page.jpg"
                       alt="Modern Diagnostic Centre Facility"
                       loading="lazy"
-                      className="w-full max-w-[360px] sm:max-w-[420px] md:max-w-[480px] h-auto rounded-xl shadow-xl object-cover transition-transform duration-300 hover:scale-[1.02] about-image-enter"
+                      className="w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[420px] h-auto rounded-xl shadow-xl object-cover transition-transform duration-300 hover:scale-[1.02] about-image-enter"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = 'none';
                       }}
                     />
+                  </div>
+                  <div className="w-full max-w-[480px] mx-auto lg:mx-0 lg:ml-auto">
+                    <h3 className="text-lg font-semibold text-text-dark mb-4">Our Centre in Action</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {[aboutVideo2, aboutVideo3, aboutVideo4, aboutVideo5].map((src, i) => (
+                        <div key={i} className="rounded-xl overflow-hidden shadow-lg bg-black hover:shadow-xl transition-shadow">
+                          <video
+                            src={src}
+                            controls
+                            preload="metadata"
+                            className="w-full aspect-video object-contain"
+                          >
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      ))}
+                    </div>
+                    <Link
+                      to="/gallery"
+                      className="inline-block text-sm font-medium text-primary-green hover:underline mt-4"
+                    >
+                      View all in Gallery →
+                    </Link>
                   </div>
                 </div>
               </div>

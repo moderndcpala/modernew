@@ -28,6 +28,22 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [welcomeImages.length]);
 
+  // Pause video when it scrolls out of view
+  useEffect(() => {
+    const ref = videoRef.current;
+    if (!ref) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) ref.pause();
+        });
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(ref);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />

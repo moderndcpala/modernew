@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { X, ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import galleryImage1 from '../assets/Gallery Image 1.png';
@@ -126,6 +126,27 @@ const Gallery = () => {
       document.body.style.overflow = 'unset';
     };
   }, [selectedImage, galleryImages.length]);
+
+  // Pause videos when they scroll out of view
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    videoRefs.current.forEach((ref, i) => {
+      if (!ref) return;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              ref.pause();
+            }
+          });
+        },
+        { threshold: 0.5, rootMargin: '0px' }
+      );
+      observer.observe(ref);
+      observers.push(observer);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -279,7 +300,7 @@ const Gallery = () => {
                     <video
                       ref={(el) => { videoRefs.current[video.id - 1] = el; }}
                       src={video.src}
-                      controls
+                      controls={playingVideos[video.id]}
                       preload="metadata"
                       className="w-full h-full object-contain"
                       onPlay={() => {
@@ -294,11 +315,7 @@ const Gallery = () => {
                       Your browser does not support the video tag.
                     </video>
                     {!playingVideos[video.id] && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">
-                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                          <Play className="h-8 w-8 md:h-10 md:w-10 text-primary-green ml-1" fill="currentColor" />
-                        </div>
-                      </div>
+                      <div className="absolute inset-0" aria-label="Click to play" />
                     )}
                   </div>
                   {(video.title || video.description) && (
