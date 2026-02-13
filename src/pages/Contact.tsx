@@ -101,7 +101,7 @@ const Contact = () => {
                   <li className="flex items-start gap-3">
                     <Clock className="h-5 w-5 text-primary-green mt-1" />
                     <span>
-                      Daily: 6:30 AM - 6:00 PM
+                      Mon-Sat: 6:30 AM - 6:00 PM
                     </span>
                   </li>
                 </ul>

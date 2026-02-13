@@ -95,7 +95,7 @@ const Footer = () => {
           <div>
             <h3 className="text-sm uppercase tracking-[0.2em] opacity-80 mb-4">Working Hours</h3>
             <ul className="space-y-2 text-sm">
-              <li>Daily: 6:30 AM - 6:00 PM</li>
+              <li>Mon-Sat: 6:30 AM - 6:00 PM</li>
             </ul>
           </div>
         </div>

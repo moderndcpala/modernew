@@ -137,13 +137,16 @@ const Header = () => {
                       <div className="rounded-2xl border border-white/20 bg-primary-green/95 p-4 shadow-2xl backdrop-blur-md">
                         <div className="max-h-[320px] overflow-y-auto pr-1">
                           {[...servicesData]
-                            .sort((a, b) =>
-                              a.id === 'health-packages'
-                                ? -1
-                                : b.id === 'health-packages'
-                                  ? 1
-                                  : 0
-                            )
+                            .sort((a, b) => {
+                              const order: Record<string, number> = {
+                                'health-packages': 0,
+                                'pre-medical-checkup': 1,
+                                'pathology': 2,
+                                'radiology': 3,
+                                'cardiology': 4,
+                              };
+                              return (order[a.id] ?? 99) - (order[b.id] ?? 99);
+                            })
                             .map((category) => (
                             <div key={category.id} className="mb-4 last:mb-0">
                               <div className="inline-flex rounded-full bg-white/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-white">
@@ -317,13 +320,16 @@ const Header = () => {
                     >
                       <div className="space-y-4 py-2">
                         {[...servicesData]
-                          .sort((a, b) =>
-                            a.id === 'health-packages'
-                              ? -1
-                              : b.id === 'health-packages'
-                                ? 1
-                                : 0
-                          )
+                          .sort((a, b) => {
+                            const order: Record<string, number> = {
+                              'health-packages': 0,
+                              'pre-medical-checkup': 1,
+                              'pathology': 2,
+                              'radiology': 3,
+                              'cardiology': 4,
+                            };
+                            return (order[a.id] ?? 99) - (order[b.id] ?? 99);
+                          })
                           .map((category) => (
                           <div key={category.id}>
                             <div className="inline-flex rounded-full bg-white/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-white">

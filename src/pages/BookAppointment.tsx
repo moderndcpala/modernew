@@ -96,6 +96,14 @@ const BookAppointment = () => {
           specificTests: [], // Clear tests when service changes
         };
       }
+      // Block Sundays - lab closed Mon-Sat only
+      if (name === 'date' && value) {
+        const d = new Date(value);
+        if (d.getDay() === 0) {
+          alert('We are closed on Sundays. Please select a weekday (Mon-Sat).');
+          return { ...prev, date: '' };
+        }
+      }
       return {
         ...prev,
         [name]: value,
@@ -119,6 +127,14 @@ const BookAppointment = () => {
     if (formData.service && formData.specificTests.length === 0) {
       alert('Please select at least one test for the selected service.');
       return;
+    }
+    // Validate date - no Sundays (lab closed Mon-Sat only)
+    if (formData.date) {
+      const d = new Date(formData.date);
+      if (d.getDay() === 0) {
+        alert('We are closed on Sundays. Please select a weekday (Mon-Sat).');
+        return;
+      }
     }
     
     // Format booking details
@@ -427,7 +443,15 @@ _This is an automated booking request from our website._`;
                       required
                       value={formData.date}
                       onChange={handleInputChange}
-                      min={new Date().toISOString().split('T')[0]}
+                      min={(() => {
+                        const today = new Date();
+                        if (today.getDay() === 0) {
+                          const tomorrow = new Date(today);
+                          tomorrow.setDate(tomorrow.getDate() + 1);
+                          return tomorrow.toISOString().split('T')[0];
+                        }
+                        return today.toISOString().split('T')[0];
+                      })()}
                       className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-transparent"
                     />
                     <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
@@ -450,8 +474,7 @@ _This is an automated booking request from our website._`;
                       className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-transparent appearance-none bg-white"
                     >
                       <option value="">Select preferred time</option>
-                      <optgroup label="Morning (6:00 AM - 12:00 PM)">
-                        <option value="06:00">6:00 AM</option>
+                      <optgroup label="Morning (6:30 AM - 12:00 PM)">
                         <option value="06:30">6:30 AM</option>
                         <option value="07:00">7:00 AM</option>
                         <option value="07:30">7:30 AM</option>
@@ -483,7 +506,7 @@ _This is an automated booking request from our website._`;
                     <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
                   </div>
                   <p className="text-xs text-gray-500 mt-1">
-                    Working Hours: 6:00 AM - 6:00 PM
+                    Working Hours: Mon-Sat 6:30 AM - 6:00 PM
                   </p>
                 </div>
               </div>
