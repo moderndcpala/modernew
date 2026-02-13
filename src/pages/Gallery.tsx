@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import galleryImage1 from '../assets/Gallery Image 1.png';
@@ -19,6 +19,8 @@ import video5 from '../assets/C3052_3_4.mp4';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [playingVideos, setPlayingVideos] = useState<Record<number, boolean>>({ 1: false, 2: false, 3: false, 4: false, 5: false });
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const galleryImages = [
     {
@@ -91,10 +93,10 @@ const Gallery = () => {
 
   const galleryVideos = [
     { id: 1, title: 'Facility Tour', description: 'A walkthrough of our diagnostic centre', src: video1 },
-    { id: 2, title: 'Our Team', src: video2 },
-    { id: 3, title: 'Laboratory', src: video3 },
-    { id: 4, title: 'Patient Care', src: video4 },
-    { id: 5, title: 'Welcome to MDC Pala', src: video5 },
+    { id: 2, src: video2 },
+    { id: 3, src: video3 },
+    { id: 4, src: video4 },
+    { id: 5, src: video5 },
   ];
 
   // Keyboard navigation and body scroll lock
@@ -266,20 +268,45 @@ const Gallery = () => {
                   key={video.id}
                   className="rounded-lg shadow-md overflow-hidden bg-gray-100 hover:shadow-xl transition-shadow duration-300"
                 >
-                  <div className="relative aspect-video bg-black">
+                  <div
+                    className="relative aspect-video bg-black cursor-pointer group"
+                    onClick={() => {
+                      if (!playingVideos[video.id] && videoRefs.current[video.id - 1]) {
+                        videoRefs.current[video.id - 1]?.play();
+                      }
+                    }}
+                  >
                     <video
+                      ref={(el) => { videoRefs.current[video.id - 1] = el; }}
                       src={video.src}
                       controls
                       preload="metadata"
                       className="w-full h-full object-contain"
+                      onPlay={() => {
+                        videoRefs.current.forEach((ref, i) => {
+                          if (ref && i !== video.id - 1) ref.pause();
+                        });
+                        setPlayingVideos((prev) => ({ ...prev, [video.id]: true }));
+                      }}
+                      onPause={() => setPlayingVideos((prev) => ({ ...prev, [video.id]: false }))}
+                      onClick={(e) => e.stopPropagation()}
                     >
                       Your browser does not support the video tag.
                     </video>
+                    {!playingVideos[video.id] && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">
+                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                          <Play className="h-8 w-8 md:h-10 md:w-10 text-primary-green ml-1" fill="currentColor" />
+                        </div>
+                      </div>
+                    )}
                   </div>
-                  <div className="p-4 bg-white">
-                    <h3 className="text-lg font-semibold text-text-dark">{video.title}</h3>
-                    {video.description && <p className="text-sm text-gray-600 mt-2">{video.description}</p>}
-                  </div>
+                  {(video.title || video.description) && (
+                    <div className="p-4 bg-white">
+                      {video.title && <h3 className="text-lg font-semibold text-text-dark">{video.title}</h3>}
+                      {video.description && <p className="text-sm text-gray-600 mt-2">{video.description}</p>}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
