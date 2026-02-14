@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Activity, Heart, FileText, Package, ChevronDown, ChevronUp, CheckCircle, Calendar, Cpu, Stethoscope, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { imageSrc } from '../utils/imageSrc';
 import galleryImage1 from '../assets/Gallery Image 1.png';
 import galleryImage2 from '../assets/Gallery Image 2.webp';
 import galleryImage3 from '../assets/Gallery Image 3.webp';
@@ -543,9 +544,10 @@ const Services = () => {
           {/* Services Page Image */}
           <div className="mb-10 rounded-xl overflow-hidden shadow-lg max-w-6xl mx-auto">
             <img
-              src="/services page image 1.png"
+              src={imageSrc('/services page image 1.png')}
               alt="Modern Medical Laboratory"
-              loading="lazy"
+              loading="eager"
+              fetchPriority="high"
               decoding="async"
               className="service-image-animate w-full h-[220px] md:h-[320px] lg:h-[380px] object-cover transition-transform duration-300 hover:scale-[1.02]"
               onLoad={(e) => {
@@ -624,7 +626,7 @@ const Services = () => {
                               {test.image && (
                                 <div className={`w-full h-48 overflow-hidden bg-gray-100 ${isHealthPackages ? 'flex-shrink-0' : ''}`}>
                                   <img 
-                                    src={test.image} 
+                                    src={typeof test.image === 'string' ? imageSrc(test.image) : test.image} 
                                     alt={test.name}
                                     loading="lazy"
                                     decoding="async"
@@ -633,7 +635,6 @@ const Services = () => {
                                       e.currentTarget.classList.add('is-loaded');
                                     }}
                                     onError={(e) => {
-                                      // Fallback if image fails to load
                                       (e.target as HTMLImageElement).style.display = 'none';
                                     }}
                                   />

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Activity, Heart, FileText, Package, Stethoscope } from 'lucide-react';
+import { imageSrc } from '../utils/imageSrc';
 
 const Services = () => {
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
@@ -146,16 +147,22 @@ const Services = () => {
           Our Services
         </h2>
 
-          {/* Services Image */}
+          {/* Services Image - local fallback if external fails */}
           <div className="mb-12 rounded-xl overflow-hidden shadow-lg max-w-4xl mx-auto">
             <img 
-              src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1200&h=600&fit=crop" 
+              src={imageSrc('/services page image 1.png')}
               alt="Modern Medical Laboratory" 
               loading="lazy"
+              decoding="async"
               className="w-full h-[200px] md:h-[300px] lg:h-[350px] object-cover"
               onError={(e) => {
-                // Fallback image if the first one fails
-                (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=1200&h=600&fit=crop';
+                const el = e.target as HTMLImageElement;
+                if (!el.dataset.fallbackUsed) {
+                  el.dataset.fallbackUsed = '1';
+                  el.src = 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1200&h=600&fit=crop';
+                } else {
+                  el.style.display = 'none';
+                }
               }}
             />
           </div>

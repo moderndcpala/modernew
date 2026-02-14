@@ -9,7 +9,17 @@ import galleryImage2 from '../assets/Gallery Image 2.webp';
 import galleryImage3 from '../assets/Gallery Image 3.webp';
 import { videoUrls } from '../config/videos';
 
-function AboutVideo({ src }: { src: string }) {
+function AboutVideo({
+  src,
+  videoRef,
+  onPlay,
+  onPause,
+}: {
+  src: string;
+  videoRef: (el: HTMLVideoElement | null) => void;
+  onPlay: () => void;
+  onPause: () => void;
+}) {
   const [error, setError] = useState(false);
   if (error) {
     return (
@@ -21,11 +31,14 @@ function AboutVideo({ src }: { src: string }) {
   return (
     <div className="rounded-xl overflow-hidden shadow-lg bg-black hover:shadow-xl transition-shadow">
       <video
+        ref={videoRef}
         controls
         preload="metadata"
         playsInline
         className="w-full aspect-video object-contain"
         onError={() => setError(true)}
+        onPlay={onPlay}
+        onPause={onPause}
       >
         <source src={src} type="video/mp4" />
         Your browser does not support the video tag.
@@ -34,10 +47,13 @@ function AboutVideo({ src }: { src: string }) {
   );
 }
 
+const aboutVideos = [videoUrls.video2, videoUrls.video3, videoUrls.video4, videoUrls.video5];
+
 const About = () => {
   const [visibleValues, setVisibleValues] = useState<Set<number>>(new Set());
   const valuesRef = useRef<HTMLElement>(null);
   const valueCardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const values = [
     {
       icon: Heart,
@@ -93,6 +109,44 @@ const About = () => {
       observers.forEach((observer) => observer.disconnect());
     };
   }, []);
+
+  // Pause About videos when they scroll out of view
+  useEffect(() => {
+    const refs = videoRefs.current;
+    const observers: IntersectionObserver[] = [];
+    refs.forEach((ref) => {
+      if (!ref) return;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting && ref && !ref.paused) ref.pause();
+          });
+        },
+        { threshold: 0.25 }
+      );
+      observer.observe(ref);
+      observers.push(observer);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  // On mobile: pause About videos when user scrolls
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth >= 768) return;
+      videoRefs.current.forEach((ref) => {
+        if (ref && !ref.paused) ref.pause();
+      });
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const pauseOtherVideos = (playingIndex: number) => {
+    videoRefs.current.forEach((ref, i) => {
+      if (ref && i !== playingIndex) ref.pause();
+    });
+  };
 
   return (
     <>
@@ -225,8 +279,14 @@ const About = () => {
                   <div className="w-full max-w-[480px] mx-auto lg:mx-0 lg:ml-auto">
                     <h3 className="text-lg font-semibold text-text-dark mb-4">Our Centre in Action</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {[videoUrls.video2, videoUrls.video3, videoUrls.video4, videoUrls.video5].map((src, i) => (
-                        <AboutVideo key={i} src={src} />
+                      {aboutVideos.map((src, i) => (
+                        <AboutVideo
+                          key={i}
+                          src={src}
+                          videoRef={(el) => { videoRefs.current[i] = el; }}
+                          onPlay={() => pauseOtherVideos(i)}
+                          onPause={() => {}}
+                        />
                       ))}
                     </div>
                     <Link
