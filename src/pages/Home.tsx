@@ -1,14 +1,15 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import About from '../components/About';
 import WhyChooseUs from '../components/WhyChooseUs';
-import GoogleReviews from '../components/GoogleReviews';
-import OurTests from '../components/OurTests';
-import Statistics from '../components/Statistics';
 import Footer from '../components/Footer';
+
+const GoogleReviews = lazy(() => import('../components/GoogleReviews'));
+const OurTests = lazy(() => import('../components/OurTests'));
+const Statistics = lazy(() => import('../components/Statistics'));
 import { servicesData } from '../data/services';
 import { Play } from 'lucide-react';
 import homeVideo from '../assets/WhatsApp Video 2026-02-13 at 4.26.59 PM.mp4';
@@ -233,9 +234,15 @@ const Home = () => {
         </div>
       </section>
       <WhyChooseUs />
-      <GoogleReviews />
-      <OurTests />
-      <Statistics />
+      <Suspense fallback={<div className="min-h-[200px]" />}>
+        <GoogleReviews />
+      </Suspense>
+      <Suspense fallback={<div className="min-h-[400px]" />}>
+        <OurTests />
+      </Suspense>
+      <Suspense fallback={<div className="min-h-[200px]" />}>
+        <Statistics />
+      </Suspense>
       <Footer />
     </div>
   );
