@@ -119,7 +119,7 @@ const Home = () => {
                   <p className="font-medium">Video unavailable</p>
                   <p className="text-sm opacity-90">
                     {videoBaseUrl ? (
-                      <>Cloudinary/CDN connected: <code className="bg-black/30 px-1 rounded break-all">{videoBaseUrl}</code> — check that <code className="bg-black/30 px-1 rounded">video1.mp4</code> exists at that URL.</>
+                      <>Cloudinary/CDN connected: <code className="bg-black/30 px-1 rounded break-all">{videoBaseUrl}</code> — check that <code className="bg-black/30 px-1 rounded">video 1.mp4</code> … <code className="bg-black/30 px-1 rounded">video 5.mp4</code> exist in that folder.</>
                     ) : (
                       <>Local: add videos to <code className="bg-black/30 px-1 rounded">public/videos/</code>. Production: set <code className="bg-black/30 px-1 rounded">VITE_VIDEO_BASE_URL</code> in Vercel (e.g. your Cloudinary base URL).</>
                     )}
