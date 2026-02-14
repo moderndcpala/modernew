@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { X, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -14,6 +14,7 @@ import galleryImage8 from '../assets/Gallery Image 8.webp';
 import { videoUrls } from '../config/videos';
 
 const Gallery = () => {
+  const location = useLocation();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [playingVideos, setPlayingVideos] = useState<Record<number, boolean>>({ 1: false, 2: false, 3: false, 4: false, 5: false });
   const [videoErrors, setVideoErrors] = useState<Record<number, boolean>>({});
@@ -124,6 +125,15 @@ const Gallery = () => {
     };
   }, [selectedImage, galleryImages.length]);
 
+  // Scroll to #photos or #videos when opening from nav
+  useEffect(() => {
+    const hash = location.hash?.replace('#', '');
+    if (hash === 'photos' || hash === 'videos') {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [location.pathname, location.hash]);
+
   // Pause videos when they scroll out of view
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
@@ -177,7 +187,8 @@ const Gallery = () => {
             </p>
           </div>
 
-          {/* Gallery Grid */}
+          {/* Gallery Grid - Photos */}
+          <section id="photos" className="scroll-mt-24">
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {galleryImages.map((item, index) => (
               <div
@@ -205,6 +216,7 @@ const Gallery = () => {
               </div>
             ))}
           </div>
+          </section>
 
           {/* Image Modal/Lightbox */}
           {selectedImage !== null && (
@@ -275,7 +287,7 @@ const Gallery = () => {
           )}
 
           {/* Videos Section */}
-          <section className="mt-16">
+          <section id="videos" className="mt-16 scroll-mt-24">
             <h2 className="text-2xl md:text-3xl font-bold text-text-dark mb-2 text-center">
               Videos
             </h2>

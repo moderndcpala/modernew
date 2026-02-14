@@ -9,6 +9,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isDesktopServicesOpen, setIsDesktopServicesOpen] = useState(false);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [isDesktopGalleryOpen, setIsDesktopGalleryOpen] = useState(false);
   const location = useLocation();
 
   // Close menu when route changes
@@ -16,6 +18,8 @@ const Header = () => {
     setIsMenuOpen(false);
     setIsServicesOpen(false);
     setIsDesktopServicesOpen(false);
+    setIsGalleryOpen(false);
+    setIsDesktopGalleryOpen(false);
   }, [location]);
 
   // Prevent body scroll when mobile menu is open
@@ -26,6 +30,7 @@ const Header = () => {
       document.body.style.overflow = 'unset';
       setIsServicesOpen(false);
       setIsDesktopServicesOpen(false);
+      setIsGalleryOpen(false);
     }
     return () => {
       document.body.style.overflow = 'unset';
@@ -194,6 +199,63 @@ const Header = () => {
                             View all services
             </Link>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : link.link === '/gallery' ? (
+                  <div
+                    key={link.link}
+                    className="relative"
+                  >
+                    <div
+                      className={`desktop-nav-link rounded-full font-medium transition-all duration-200 relative inline-flex items-center ${
+                        isActive(link.link)
+                          ? 'text-white font-semibold is-active'
+                          : 'text-white/90 hover:text-white hover:bg-white/10'
+                      }`}
+                    >
+                      <Link
+                        to={link.link}
+                        className="relative z-10 whitespace-nowrap"
+                      >
+                        {link.label}
+                      </Link>
+                      <button
+                        type="button"
+                        aria-label="Toggle gallery menu"
+                        aria-expanded={isDesktopGalleryOpen}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setIsDesktopGalleryOpen((prev) => !prev);
+                        }}
+                        className="ml-1 inline-flex h-7 w-7 items-center justify-center rounded-full text-inherit transition-all duration-200 relative z-20 pointer-events-auto"
+                      >
+                        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isDesktopGalleryOpen ? 'rotate-180' : ''}`} />
+                      </button>
+                    </div>
+                    <div
+                      className={`absolute left-1/2 top-full z-50 min-w-[160px] -translate-x-1/2 pt-2 transition-all duration-200 ease-out ${
+                        isDesktopGalleryOpen
+                          ? 'opacity-100 pointer-events-auto translate-y-0'
+                          : 'opacity-0 pointer-events-none translate-y-2'
+                      }`}
+                    >
+                      <div className="rounded-2xl border border-white/20 bg-primary-green/95 py-2 shadow-2xl backdrop-blur-md">
+                        <Link
+                          to="/gallery#photos"
+                          onClick={() => setIsDesktopGalleryOpen(false)}
+                          className="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10"
+                        >
+                          Photos
+                        </Link>
+                        <Link
+                          to="/gallery#videos"
+                          onClick={() => setIsDesktopGalleryOpen(false)}
+                          className="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10"
+                        >
+                          Videos
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -376,6 +438,55 @@ const Header = () => {
               >
                           View all services
               </Link>
+                      </div>
+                    </div>
+                  </div>
+                ) : link.link === '/gallery' ? (
+                  <div key={link.link}>
+                    <div className={`w-full flex items-center justify-between px-4 py-4 rounded-lg font-semibold text-lg transition-all duration-200 relative text-white hover:bg-white/10 ${isActive(link.link) ? 'bg-white/10' : ''}`}>
+                      <Link
+                        to={link.link}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="flex-1"
+                      >
+                        {link.label}
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setIsGalleryOpen((prev) => !prev);
+                        }}
+                        className="ml-3 flex-shrink-0"
+                        aria-label="Toggle gallery menu"
+                        aria-expanded={isGalleryOpen}
+                      >
+                        <ChevronDown
+                          className={`h-5 w-5 transition-transform duration-200 ${isGalleryOpen ? 'rotate-180' : ''}`}
+                        />
+                      </button>
+                    </div>
+                    <div
+                      className={`mt-2 ml-4 border-l border-white/20 pl-4 overflow-hidden transition-all duration-300 ${
+                        isGalleryOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
+                      }`}
+                    >
+                      <div className="space-y-1 py-2">
+                        <Link
+                          to="/gallery#photos"
+                          onClick={() => setIsMenuOpen(false)}
+                          className="block text-sm text-white/90 hover:text-white"
+                        >
+                          Photos
+                        </Link>
+                        <Link
+                          to="/gallery#videos"
+                          onClick={() => setIsMenuOpen(false)}
+                          className="block text-sm text-white/90 hover:text-white"
+                        >
+                          Videos
+                        </Link>
                       </div>
                     </div>
                   </div>
