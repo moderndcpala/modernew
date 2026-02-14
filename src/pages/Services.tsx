@@ -546,6 +546,7 @@ const Services = () => {
               src="/services page image 1.png"
               alt="Modern Medical Laboratory"
               loading="lazy"
+              decoding="async"
               className="service-image-animate w-full h-[220px] md:h-[320px] lg:h-[380px] object-cover transition-transform duration-300 hover:scale-[1.02]"
               onLoad={(e) => {
                 e.currentTarget.classList.add('is-loaded');
@@ -626,6 +627,7 @@ const Services = () => {
                                     src={test.image} 
                                     alt={test.name}
                                     loading="lazy"
+                                    decoding="async"
                                     className="service-image-animate w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                     onLoad={(e) => {
                                       e.currentTarget.classList.add('is-loaded');

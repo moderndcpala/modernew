@@ -44,6 +44,16 @@ const Home = () => {
     return () => observer.disconnect();
   }, []);
 
+  // On mobile: pause video when user scrolls
+  useEffect(() => {
+    const handleScroll = () => {
+      const ref = videoRef.current;
+      if (window.innerWidth < 768 && ref && !ref.paused) ref.pause();
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -64,7 +74,9 @@ const Home = () => {
                     key={image}
                     src={image}
                     alt="Modern Diagnostic Centre"
-                    loading="lazy"
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                    {...(index === 0 && { fetchPriority: 'high' })}
                     className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                       index === welcomeIndex ? 'opacity-100' : 'opacity-0'
                     }`}
@@ -103,7 +115,7 @@ const Home = () => {
                 ref={videoRef}
                 src={homeVideo}
                 controls
-                preload="metadata"
+                preload="none"
                 className="w-full aspect-video object-contain"
                 onPlay={() => setIsVideoPlaying(true)}
                 onPause={() => setIsVideoPlaying(false)}
@@ -153,6 +165,7 @@ const Home = () => {
                         src={pkg.image}
                         alt={pkg.title}
                         loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           (e.target as HTMLImageElement).style.display = 'none';

@@ -193,6 +193,7 @@ const Gallery = () => {
                   src={item.image}
                   alt={item.title}
                   loading="lazy"
+                  decoding="async"
                   className="gallery-image-animate w-full h-full object-cover aspect-square"
                 />
                 
@@ -301,7 +302,7 @@ const Gallery = () => {
                       ref={(el) => { videoRefs.current[video.id - 1] = el; }}
                       src={video.src}
                       controls={playingVideos[video.id]}
-                      preload="metadata"
+                      preload="none"
                       className="w-full h-full object-contain"
                       onPlay={() => {
                         videoRefs.current.forEach((ref, i) => {

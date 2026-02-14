@@ -193,6 +193,7 @@ const About = () => {
                       src="/about us page.jpg"
                       alt="Modern Diagnostic Centre Facility"
                       loading="lazy"
+                      decoding="async"
                       className="w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[420px] h-auto rounded-xl shadow-xl object-cover transition-transform duration-300 hover:scale-[1.02] about-image-enter"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = 'none';
@@ -207,7 +208,7 @@ const About = () => {
                           <video
                             src={src}
                             controls
-                            preload="metadata"
+                            preload="none"
                             className="w-full aspect-video object-contain"
                           >
                             Your browser does not support the video tag.
