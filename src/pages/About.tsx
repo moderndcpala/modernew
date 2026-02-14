@@ -8,6 +8,7 @@ import galleryImage1 from '../assets/Gallery Image 1.png';
 import galleryImage2 from '../assets/Gallery Image 2.webp';
 import galleryImage3 from '../assets/Gallery Image 3.webp';
 import { videoUrls } from '../config/videos';
+import { imageSrc } from '../utils/imageSrc';
 
 function AboutVideo({
   src,
@@ -266,7 +267,7 @@ const About = () => {
                 <div className="order-2 flex flex-col gap-6 lg:gap-8">
                   <div className="flex justify-center lg:justify-end">
                     <img 
-                      src="/about us page.jpg"
+                      src={imageSrc('/about us page.jpg')}
                       alt="Modern Diagnostic Centre Facility"
                       loading="lazy"
                       decoding="async"

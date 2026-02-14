@@ -581,7 +581,7 @@ const Services = () => {
                     <div 
                       className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-300"
                       style={{
-                        backgroundImage: `url(${service.image})`,
+                        backgroundImage: `url(${typeof service.image === 'string' ? imageSrc(service.image) : service.image})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                       }}

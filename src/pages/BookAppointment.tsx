@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { User, Phone, Mail, Activity, Calendar, Clock, CheckCircle2, Send, FileCheck } from 'lucide-react';
+import { imageSrc } from '../utils/imageSrc';
 
 // Define service-to-tests mapping
 const serviceTestsMap: { [key: string]: string[] } = {
@@ -279,7 +280,7 @@ _This is an automated booking request from our website._`;
         <section
           className="relative py-12 md:py-16 bg-primary-green text-white overflow-hidden"
           style={{
-            backgroundImage: "url('/book appointment.jpg')",
+            backgroundImage: `url(${imageSrc('/book appointment.jpg')})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

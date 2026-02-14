@@ -33,6 +33,13 @@
   color: var(--text-dark);
 }
 
+/* Smooth scroll and prevent horizontal drift on mobile */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  scroll-padding-top: 6rem; /* clear sticky header on anchor jump */
+}
+
 body {
   margin: 0;
   font-family: Inter, Roboto, system-ui, sans-serif;
@@ -40,17 +47,52 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
-html {
-  scroll-behavior: smooth;
+#root {
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
+/* Snappier, smoother easing; GPU-friendly transforms */
 a,
 button,
 img {
-  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease,
-    box-shadow 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reduce tap delay and improve touch response on mobile */
+a,
+button {
+  touch-action: manipulation;
+}
+
+/* Sticky header on its own layer for smoother scroll */
+header.sticky {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Smoother animated/transformed elements */
+img[class*="transition"],
+[class*="hover:scale"],
+[class*="transition-transform"] {
+  backface-visibility: hidden;
+}
+
+/* Focus ring without layout shift; smooth outline */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--primary-green);
+  outline-offset: 2px;
 }
 
 h1,
@@ -63,8 +105,17 @@ h6 {
   letter-spacing: 0.01em;
 }
 
+/* Smooth overflow scroll (e.g. modals, dropdowns) */
+.overflow-y-auto,
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *,
+  .overflow-y-auto,
+  .overflow-x-auto {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

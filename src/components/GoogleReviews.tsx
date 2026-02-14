@@ -1,4 +1,5 @@
 import { Star, Quote } from 'lucide-react';
+import { imageSrc } from '../utils/imageSrc';
 
 const averageRating = 4.6;
 const reviews = [
@@ -23,9 +24,10 @@ const GoogleReviews = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <img
-              src="/google-logo-9808 1.png"
+              src={imageSrc('/google-logo-9808 1.png')}
               alt="Google logo"
               loading="lazy"
+              decoding="async"
               className="mx-auto mb-4 h-8 w-auto"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = 'none';
