@@ -12,7 +12,7 @@ const OurTests = lazy(() => import('../components/OurTests'));
 const Statistics = lazy(() => import('../components/Statistics'));
 import { servicesData } from '../data/services';
 import { Play } from 'lucide-react';
-import homeVideo from '../assets/WhatsApp Video 2026-02-13 at 4.26.59 PM.mp4';
+import { videoUrls } from '../config/videos';
 
 const Home = () => {
   const [welcomeIndex, setWelcomeIndex] = useState(0);
@@ -114,7 +114,7 @@ const Home = () => {
             >
               <video
                 ref={videoRef}
-                src={homeVideo}
+                src={videoUrls.video1}
                 controls
                 preload="auto"
                 className="w-full aspect-video object-contain"

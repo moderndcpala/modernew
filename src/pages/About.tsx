@@ -7,10 +7,7 @@ import yearsImage from '../assets/25years.png';
 import galleryImage1 from '../assets/Gallery Image 1.png';
 import galleryImage2 from '../assets/Gallery Image 2.webp';
 import galleryImage3 from '../assets/Gallery Image 3.webp';
-import aboutVideo2 from '../assets/C3052_3_1.mp4';
-import aboutVideo3 from '../assets/C3052_3_2.mp4';
-import aboutVideo4 from '../assets/C3052_3_3.mp4';
-import aboutVideo5 from '../assets/C3052_3_4.mp4';
+import { videoUrls } from '../config/videos';
 
 const About = () => {
   const [visibleValues, setVisibleValues] = useState<Set<number>>(new Set());
@@ -203,7 +200,7 @@ const About = () => {
                   <div className="w-full max-w-[480px] mx-auto lg:mx-0 lg:ml-auto">
                     <h3 className="text-lg font-semibold text-text-dark mb-4">Our Centre in Action</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {[aboutVideo2, aboutVideo3, aboutVideo4, aboutVideo5].map((src, i) => (
+                      {[videoUrls.video2, videoUrls.video3, videoUrls.video4, videoUrls.video5].map((src, i) => (
                         <div key={i} className="rounded-xl overflow-hidden shadow-lg bg-black hover:shadow-xl transition-shadow">
                           <video
                             src={src}

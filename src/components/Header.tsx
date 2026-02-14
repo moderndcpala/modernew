@@ -78,14 +78,18 @@ const Header = () => {
                 <img 
                   src={logo} 
                   alt="Modern Diagnostic Centre" 
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   className="logo-enter logo-responsive h-24 w-auto object-contain max-h-full md:hidden" 
                   style={{ maxHeight: '112px' }}
                 />
                 <img 
                   src={logoDesktop} 
                   alt="Modern Diagnostic Centre" 
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   className="logo-enter logo-responsive hidden md:block h-24 lg:h-28 w-auto object-contain max-h-full" 
                   style={{ maxHeight: '112px' }}
                 />

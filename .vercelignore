@@ -1,0 +1,4 @@
+# Exclude large videos to stay under Vercel 100MB limit
+# Host videos on Cloudinary/Bunny CDN and set VITE_VIDEO_BASE_URL in Vercel
+public/videos
+src/assets/*.mp4
