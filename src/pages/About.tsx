@@ -208,7 +208,7 @@ const About = () => {
                           <video
                             src={src}
                             controls
-                            preload="none"
+                            preload="auto"
                             className="w-full aspect-video object-contain"
                           >
                             Your browser does not support the video tag.

@@ -182,7 +182,7 @@ const Gallery = () => {
 
           {/* Gallery Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {galleryImages.map((item) => (
+            {galleryImages.map((item, index) => (
               <div
                 key={item.id}
                 onClick={() => setSelectedImage(item.id)}
@@ -192,8 +192,9 @@ const Gallery = () => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  loading="lazy"
+                  loading="eager"
                   decoding="async"
+                  {...(index < 4 && { fetchPriority: 'high' })}
                   className="gallery-image-animate w-full h-full object-cover aspect-square"
                 />
                 
@@ -259,7 +260,7 @@ const Gallery = () => {
                 <img
                   src={galleryImages[selectedImage - 1].image}
                   alt={galleryImages[selectedImage - 1].title}
-                  loading="lazy"
+                  loading="eager"
                   className="max-w-full max-h-full object-contain rounded-lg"
                 />
                 
@@ -302,7 +303,7 @@ const Gallery = () => {
                       ref={(el) => { videoRefs.current[video.id - 1] = el; }}
                       src={video.src}
                       controls={playingVideos[video.id]}
-                      preload="metadata"
+                      preload="auto"
                       className="w-full h-full object-contain"
                       onPlay={() => {
                         videoRefs.current.forEach((ref, i) => {

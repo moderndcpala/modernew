@@ -116,7 +116,7 @@ const Home = () => {
                 ref={videoRef}
                 src={homeVideo}
                 controls
-                preload="none"
+                preload="auto"
                 className="w-full aspect-video object-contain"
                 onPlay={() => setIsVideoPlaying(true)}
                 onPause={() => setIsVideoPlaying(false)}
