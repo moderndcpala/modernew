@@ -16,6 +16,7 @@ import { videoUrls } from '../config/videos';
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [playingVideos, setPlayingVideos] = useState<Record<number, boolean>>({ 1: false, 2: false, 3: false, 4: false, 5: false });
+  const [videoErrors, setVideoErrors] = useState<Record<number, boolean>>({});
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const galleryImages = [
@@ -290,34 +291,47 @@ const Gallery = () => {
                   <div
                     className="relative aspect-video bg-black cursor-pointer group"
                     onClick={() => {
+                      if (videoErrors[video.id]) return;
                       if (!playingVideos[video.id] && videoRefs.current[video.id - 1]) {
-                        videoRefs.current[video.id - 1]?.play();
+                        videoRefs.current[video.id - 1]?.play().catch(() =>
+                          setVideoErrors((prev) => ({ ...prev, [video.id]: true }))
+                        );
                       }
                     }}
                   >
-                    <video
-                      ref={(el) => { videoRefs.current[video.id - 1] = el; }}
-                      src={video.src}
-                      controls={playingVideos[video.id]}
-                      preload="auto"
-                      className="w-full h-full object-contain"
-                      onPlay={() => {
-                        videoRefs.current.forEach((ref, i) => {
-                          if (ref && i !== video.id - 1) ref.pause();
-                        });
-                        setPlayingVideos((prev) => ({ ...prev, [video.id]: true }));
-                      }}
-                      onPause={() => setPlayingVideos((prev) => ({ ...prev, [video.id]: false }))}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      Your browser does not support the video tag.
-                    </video>
-                    {!playingVideos[video.id] && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">
-                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                          <Play className="h-8 w-8 md:h-10 md:w-10 text-primary-green ml-1" fill="currentColor" />
-                        </div>
+                    {videoErrors[video.id] ? (
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gray-900 text-white p-4 text-center text-sm">
+                        <p className="font-medium">Video unavailable</p>
                       </div>
+                    ) : (
+                      <>
+                        <video
+                          ref={(el) => { videoRefs.current[video.id - 1] = el; }}
+                          controls
+                          preload="metadata"
+                          playsInline
+                          className="w-full h-full object-contain"
+                          onPlay={() => {
+                            videoRefs.current.forEach((ref, i) => {
+                              if (ref && i !== video.id - 1) ref.pause();
+                            });
+                            setPlayingVideos((prev) => ({ ...prev, [video.id]: true }));
+                          }}
+                          onPause={() => setPlayingVideos((prev) => ({ ...prev, [video.id]: false }))}
+                          onError={() => setVideoErrors((prev) => ({ ...prev, [video.id]: true }))}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <source src={video.src} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                        {!playingVideos[video.id] && (
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors pointer-events-none">
+                            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                              <Play className="h-8 w-8 md:h-10 md:w-10 text-primary-green ml-1" fill="currentColor" />
+                            </div>
+                          </div>
+                        )}
+                      </>
                     )}
                   </div>
                   {(video.title || video.description) && (

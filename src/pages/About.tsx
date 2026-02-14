@@ -9,6 +9,31 @@ import galleryImage2 from '../assets/Gallery Image 2.webp';
 import galleryImage3 from '../assets/Gallery Image 3.webp';
 import { videoUrls } from '../config/videos';
 
+function AboutVideo({ src }: { src: string }) {
+  const [error, setError] = useState(false);
+  if (error) {
+    return (
+      <div className="rounded-xl overflow-hidden shadow-lg bg-black hover:shadow-xl transition-shadow flex items-center justify-center aspect-video text-white text-sm p-4 text-center">
+        Video unavailable
+      </div>
+    );
+  }
+  return (
+    <div className="rounded-xl overflow-hidden shadow-lg bg-black hover:shadow-xl transition-shadow">
+      <video
+        controls
+        preload="metadata"
+        playsInline
+        className="w-full aspect-video object-contain"
+        onError={() => setError(true)}
+      >
+        <source src={src} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  );
+}
+
 const About = () => {
   const [visibleValues, setVisibleValues] = useState<Set<number>>(new Set());
   const valuesRef = useRef<HTMLElement>(null);
@@ -201,16 +226,7 @@ const About = () => {
                     <h3 className="text-lg font-semibold text-text-dark mb-4">Our Centre in Action</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {[videoUrls.video2, videoUrls.video3, videoUrls.video4, videoUrls.video5].map((src, i) => (
-                        <div key={i} className="rounded-xl overflow-hidden shadow-lg bg-black hover:shadow-xl transition-shadow">
-                          <video
-                            src={src}
-                            controls
-                            preload="auto"
-                            className="w-full aspect-video object-contain"
-                          >
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
+                        <AboutVideo key={i} src={src} />
                       ))}
                     </div>
                     <Link

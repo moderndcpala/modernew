@@ -12,11 +12,12 @@ const OurTests = lazy(() => import('../components/OurTests'));
 const Statistics = lazy(() => import('../components/Statistics'));
 import { servicesData } from '../data/services';
 import { Play } from 'lucide-react';
-import { videoUrls } from '../config/videos';
+import { videoUrls, videoBaseUrl } from '../config/videos';
 
 const Home = () => {
   const [welcomeIndex, setWelcomeIndex] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [videoError, setVideoError] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const welcomeImages = ['/welcome.webp', '/welcome%202.webp', '/welcome%203.webp'];
   const healthPackages = servicesData.find((category) => category.id === 'health-packages');
@@ -107,29 +108,47 @@ const Home = () => {
             <div
               className="relative rounded-xl overflow-hidden shadow-xl bg-black cursor-pointer group"
               onClick={() => {
+                if (videoError) return;
                 if (!isVideoPlaying && videoRef.current) {
-                  videoRef.current.play();
+                  videoRef.current.play().catch(() => setVideoError(true));
                 }
               }}
             >
-              <video
-                ref={videoRef}
-                src={videoUrls.video1}
-                controls
-                preload="auto"
-                className="w-full aspect-video object-contain"
-                onPlay={() => setIsVideoPlaying(true)}
-                onPause={() => setIsVideoPlaying(false)}
-                onClick={(e) => e.stopPropagation()}
-              >
-                Your browser does not support the video tag.
-              </video>
-              {!isVideoPlaying && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <Play className="h-10 w-10 md:h-12 md:w-12 text-primary-green ml-1" fill="currentColor" />
-                  </div>
+              {videoError ? (
+                <div className="w-full aspect-video flex flex-col items-center justify-center gap-3 bg-gray-900 text-white p-6 text-center">
+                  <p className="font-medium">Video unavailable</p>
+                  <p className="text-sm opacity-90">
+                    {videoBaseUrl ? (
+                      <>Cloudinary/CDN connected: <code className="bg-black/30 px-1 rounded break-all">{videoBaseUrl}</code> — check that <code className="bg-black/30 px-1 rounded">video1.mp4</code> exists at that URL.</>
+                    ) : (
+                      <>Local: add videos to <code className="bg-black/30 px-1 rounded">public/videos/</code>. Production: set <code className="bg-black/30 px-1 rounded">VITE_VIDEO_BASE_URL</code> in Vercel (e.g. your Cloudinary base URL).</>
+                    )}
+                  </p>
                 </div>
+              ) : (
+                <>
+                  <video
+                    ref={videoRef}
+                    controls
+                    preload="metadata"
+                    playsInline
+                    className="w-full aspect-video object-contain"
+                    onPlay={() => setIsVideoPlaying(true)}
+                    onPause={() => setIsVideoPlaying(false)}
+                    onError={() => setVideoError(true)}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <source src={videoUrls.video1} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  {!isVideoPlaying && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors pointer-events-none">
+                      <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                        <Play className="h-10 w-10 md:h-12 md:w-12 text-primary-green ml-1" fill="currentColor" />
+                      </div>
+                    </div>
+                  )}
+                </>
               )}
             </div>
             <div className="mt-6 text-center">
