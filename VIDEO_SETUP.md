@@ -14,12 +14,28 @@ Copy your videos to `public/videos/` with these names:
 - `video2.mp4` through `video5.mp4`
 
 ### Option 2: Vercel (Production)
-Host videos on a free CDN, then set the base URL in Vercel:
 
-1. **Upload videos** to [Cloudinary](https://cloudinary.com) or [Bunny.net](https://bunny.net) (free tiers available)
-2. Get the base URL (e.g. `https://res.cloudinary.com/your-cloud/video/upload/`)
-3. In **Vercel Dashboard** → Your Project → Settings → Environment Variables:
-   - Add `VITE_VIDEO_BASE_URL` = `https://your-cdn-url/` (must end with `/`)
-4. Redeploy
+**Important:** After adding or changing any env var in Vercel, you must **Redeploy** (Deployments → ⋮ → Redeploy). The build bakes in env values; old deployments won’t see new variables.
 
-Video files must be named: `video1.mp4`, `video2.mp4`, etc.
+**Option A – Base URL (one variable)**  
+If all videos share the same folder and naming:
+
+1. Upload videos to [Cloudinary](https://cloudinary.com) (e.g. folder `mdc-videos`, files `video 1.mp4` … `video 5.mp4`).
+2. In Vercel → Settings → Environment Variables add:
+   - `VITE_VIDEO_BASE_URL` = `https://res.cloudinary.com/your-cloud/video/upload/v1234567890/mdc-videos/`  
+   (use the full path from one asset’s URL, **must end with `/`**.)
+3. **Redeploy.**
+
+**Option B – Full URL per video (use if Option A doesn’t work)**  
+Cloudinary gives each asset its own version in the URL. If videos still don’t load, use the exact URL for each file from the Cloudinary Media Library:
+
+1. In Cloudinary, open each video and copy its **URL**.
+2. In Vercel → Settings → Environment Variables add:
+   - `VITE_VIDEO_1_URL` = (full URL for video 1)
+   - `VITE_VIDEO_2_URL` = (full URL for video 2)
+   - `VITE_VIDEO_3_URL` = (full URL for video 3)
+   - `VITE_VIDEO_4_URL` = (full URL for video 4)
+   - `VITE_VIDEO_5_URL` = (full URL for video 5)
+3. **Redeploy.**
+
+You can mix: e.g. set only `VITE_VIDEO_1_URL` and use `VITE_VIDEO_BASE_URL` for the rest.
