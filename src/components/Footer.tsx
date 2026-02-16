@@ -105,7 +105,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex space-x-4 mb-4 md:mb-0">
               <a
-                href="https://www.instagram.com/moderndcpala/"
+                href="https://www.instagram.com/modernlab_pala/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity bg-white p-2"
